@@ -8,12 +8,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    let fetcher = TrafficStatusFetcher()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        fetcher.fetchData(){_ in
+            
+        }
     }
-
+    
+    
+    
+    
+    
 
 }
 

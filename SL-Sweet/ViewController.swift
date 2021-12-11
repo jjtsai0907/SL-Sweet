@@ -15,7 +15,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        fetcher.fetchData(){_ in
+        fetcher.fetchData() { result in
+            switch result {
+            case .success(let data):
+                print(data.ResponseData)
+            case .failure(let error):
+                print(error)
+            
+            }
             
         }
     }

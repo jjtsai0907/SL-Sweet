@@ -11,7 +11,7 @@ class TrafficStatusFetcher {
     
     
     
-    func fetchData (completion: @escaping(Result<[TrafficType], Error>) -> Void) {
+    func fetchData (completion: @escaping(Result<TrafficResponse, Error>) -> Void) {
         
         print("Hello ")
         guard let url = URL(string:"https://api.sl.se/api2/trafficsituation.json?key=\(STATUS_APIKEY)") else { print("1"); return }
@@ -24,8 +24,11 @@ class TrafficStatusFetcher {
             do {
                 let model = try JSONDecoder().decode(TrafficResponse.self, from: data)
                 print("model: \(model)")
+                completion(.success(model))
+                
             } catch {
                 print("failed \(error)")
+                completion(.failure(error))
             }
             
         }

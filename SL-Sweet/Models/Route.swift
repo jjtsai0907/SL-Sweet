@@ -25,10 +25,10 @@ struct TraficTypes: Decodable {
 
 struct TrafficType: Decodable {
     var Name: String
-    //var Events: EventsInfo
+    var Events: [EventsInfo]
 }
 
 struct EventsInfo : Decodable {
-    var eventId: Int
-    var message: String
+    var EventId: Int
+    var Message: String
 }

@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         fetcher.fetchData() { result in
             switch result {
             case .success(let data):
-                print(data.ResponseData)
+                print(data.ResponseData.TrafficTypes[0].Events)
             case .failure(let error):
                 print(error)
             

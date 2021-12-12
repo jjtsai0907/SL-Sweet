@@ -9,9 +9,11 @@ import Foundation
 
 class TrafficStatusFetcher {
     
+    private var currentTask: URLSessionDataTask?
+    typealias StatusFetchCompletion = (Result<TrafficResponse, Error>) -> ()
     
     
-    func fetchData (completion: @escaping(Result<TrafficResponse, Error>) -> Void) {
+    func fetchData (completion: @escaping StatusFetchCompletion) {
         
         print("Hello ")
         guard let url = URL(string:"https://api.sl.se/api2/trafficsituation.json?key=\(STATUS_APIKEY)") else { print("1"); return }
@@ -34,6 +36,12 @@ class TrafficStatusFetcher {
         }
         
         task.resume()
+        currentTask = task
+    }
+    
+    
+    func cancelCurrentFetch() {
+        currentTask?.cancel()
     }
     
 }

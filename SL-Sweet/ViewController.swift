@@ -17,7 +17,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
-    private var events = [EventsInfo]()
+    private var trafficTypes = [TrafficType]()
     
     private let TrafficCellIdentifier = "TraffiCell"
     
@@ -29,6 +29,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.register(TrafficCell.self, forCellReuseIdentifier: TrafficCellIdentifier)
 //        tableView.delegate = self
 //        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
         loadData()
     }
     
@@ -44,8 +45,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.hideLoadingSpinner()
             switch result {
             case .success(let data):
-                self.events = data.ResponseData.TrafficTypes[0].Events
-                print(self.events)
+                self.trafficTypes = data.ResponseData.TrafficTypes
+                //self.events = data
+                //print(self.events)
                 self.tableView.reloadData()
             case .failure(let error):
                 print(error)
@@ -66,17 +68,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: - UITableViewDataSource
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return trafficTypes.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return trafficTypes[section].Events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TrafficCellIdentifier, for: indexPath) as? TrafficCell else {
             return UITableViewCell()
         }
-        let event = events[indexPath.row]
+        let trafficType = trafficTypes[indexPath.section]
+        let event = trafficType.Events[indexPath.row]
+//        let event = events[indexPath.row]
         cell.textLabel?.text = event.Message
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let trafficType = trafficTypes[section]
+        return trafficType.Name
     }
     
     // MARK: - UITableViewDelegate

@@ -7,6 +7,12 @@
 
 import UIKit
 
+//enum TrafficTypesIcons {
+//    case bus = "buss"
+//    case tram = "spårvagn"
+//    case subway = "tunne"
+//}
+
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -21,11 +27,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Traffic State"
+        tableView.backgroundColor =  #colorLiteral(red: 1, green: 0.6862745098, blue: 0.6862745098, alpha: 1)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hej", style: .plain, target: self, action: #selector(didPressHejButton))
         tableView.rowHeight = UITableView.automaticDimension
         
         // Do any additional setup after loading the view.
         // tableView.register(TrafficCell.self, forCellReuseIdentifier: TrafficCellIdentifier)
+        
+        // These two below are already assigned in Storyboard
 //        tableView.delegate = self
 //        tableView.dataSource = self
         tableView.tableFooterView = UIView()
@@ -87,10 +96,38 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.cellMessage.text = event.Message.trimmingCharacters(in: .whitespacesAndNewlines)
         return cell
     }
+
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    
+    /*func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let trafficType = trafficTypes[section]
-        return trafficType.Name
+        print(trafficType.currentCategory())
+        print(trafficType.Type)
+//        switch trafficType.Name {
+//        case TrafficTypesIcons.subway:
+//            <#code#>
+//        default:
+//            <#code#>
+//        }
+        let emoji = emoji(forCategory: trafficType.currentCategory())
+        return emoji //"\(emoji) \(trafficType.Name)"
+        
+    }*/
+    
+    func imageIcon(forCategory category: TrafficCategory) -> UIImage? {
+        switch category {
+        
+        case .metro: return UIImage(systemName: "square.and.arrow.up.fill")
+        case .train: return UIImage(systemName: "square.and.arrow.up.fill")
+        case .local: return UIImage(systemName: "square.and.arrow.up.fill")
+        case .tram: return UIImage(systemName: "square.and.arrow.up.fill")
+        case .bus: return UIImage(systemName: "square.and.arrow.up.fill")
+        case .ferry: return UIImage(systemName: "square.and.arrow.up.fill")
+        
+        case .unknown: return UIImage(systemName: "square.and.arrow.up.fill")
+        
+            
+        }
     }
     
     // MARK: - UITableViewDelegate

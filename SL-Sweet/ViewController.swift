@@ -7,9 +7,6 @@
 
 import UIKit
 
-class TrafficCell: UITableViewCell {
-    
-}
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -25,8 +22,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         title = "Traffic State"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hej", style: .plain, target: self, action: #selector(didPressHejButton))
+        tableView.rowHeight = UITableView.automaticDimension
+        
         // Do any additional setup after loading the view.
-        tableView.register(TrafficCell.self, forCellReuseIdentifier: TrafficCellIdentifier)
+        // tableView.register(TrafficCell.self, forCellReuseIdentifier: TrafficCellIdentifier)
 //        tableView.delegate = self
 //        tableView.dataSource = self
         tableView.tableFooterView = UIView()
@@ -83,7 +82,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let trafficType = trafficTypes[indexPath.section]
         let event = trafficType.Events[indexPath.row]
 //        let event = events[indexPath.row]
-        cell.textLabel?.text = event.Message
+        //cell.textLabel?.text = event.Message
+        
+        cell.cellMessage.text = event.Message.trimmingCharacters(in: .whitespacesAndNewlines)
         return cell
     }
     

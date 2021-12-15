@@ -34,13 +34,40 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="XMe-Tn-UCx">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TraffiCell" id="b5a-dt-CLQ" customClass="TrafficCell" customModule="SL_Sweet" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="49.5" width="374" height="41"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b5a-dt-CLQ" id="aI2-sh-baj">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdI-gj-bj0">
+                                                    <rect key="frame" x="15" y="10" width="352" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IdI-gj-bj0" firstAttribute="leading" secondItem="aI2-sh-baj" secondAttribute="leading" constant="15" id="12z-E8-Br8"/>
+                                                <constraint firstItem="IdI-gj-bj0" firstAttribute="top" secondItem="aI2-sh-baj" secondAttribute="top" constant="10" id="Ijo-XB-4t2"/>
+                                                <constraint firstAttribute="bottom" secondItem="IdI-gj-bj0" secondAttribute="bottom" constant="10" id="dQ9-MP-aO9"/>
+                                                <constraint firstAttribute="trailing" secondItem="IdI-gj-bj0" secondAttribute="trailingMargin" constant="15" id="kAd-0w-NRx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellMessage" destination="IdI-gj-bj0" id="C9V-WD-sTi"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="0HX-z1-fcl"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="jYw-JA-JHT"/>
                                 </connections>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="tfi-XT-2X2">
-                                <rect key="frame" x="188.5" y="482.5" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="456.5" width="37" height="37"/>
                                 <color key="color" systemColor="labelColor"/>
                             </activityIndicatorView>
                         </subviews>

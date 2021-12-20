@@ -97,7 +97,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
 
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let trafficType = trafficTypes[section]
+        
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
+        //header.backgroundColor = .red
+        
+        let imageView = UIImageView(image: imageIcon(forCategory: trafficType.currentCategory()))
+        header.addSubview(imageView)
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame = CGRect(x: 5, y: 20, width: header.frame.size.height - 10, height: header.frame.size.height - 10)
+        
+        let label = UILabel(frame: CGRect(x: 20 + imageView.frame.size.width, y: 20, width: header.frame.size.width - 15 - imageView.frame.size.width, height: header.frame.size.height - 10))
+        header.addSubview(label)
+        label.text = trafficType.Name
+        
+        return header
+    }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 70
+    }
     
     /*func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let trafficType = trafficTypes[section]
@@ -117,12 +138,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func imageIcon(forCategory category: TrafficCategory) -> UIImage? {
         switch category {
         
-        case .metro: return UIImage(systemName: "square.and.arrow.up.fill")
-        case .train: return UIImage(systemName: "square.and.arrow.up.fill")
-        case .local: return UIImage(systemName: "square.and.arrow.up.fill")
-        case .tram: return UIImage(systemName: "square.and.arrow.up.fill")
-        case .bus: return UIImage(systemName: "square.and.arrow.up.fill")
-        case .ferry: return UIImage(systemName: "square.and.arrow.up.fill")
+        case .metro: return UIImage(named: "metro")
+        case .train: return UIImage(named: "train")
+        case .local: return UIImage(named: "local")
+        case .tram: return UIImage(named: "tram")
+        case .bus: return UIImage(named: "bus")
+        case .ferry: return UIImage(named: "ferry")
         
         case .unknown: return UIImage(systemName: "square.and.arrow.up.fill")
         

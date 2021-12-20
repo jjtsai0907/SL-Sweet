@@ -7,9 +7,12 @@
 
 import UIKit
 
-class TrafficCell: UITableViewCell {
-    
-}
+//enum TrafficTypesIcons {
+//    case bus = "buss"
+//    case tram = "spårvagn"
+//    case subway = "tunne"
+//}
+
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,18 +20,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
-    private var events = [EventsInfo]()
+    private var trafficTypes = [TrafficType]()
     
     private let TrafficCellIdentifier = "TraffiCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Traffic State"
+        tableView.backgroundColor =  #colorLiteral(red: 1, green: 0.6862745098, blue: 0.6862745098, alpha: 1)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hej", style: .plain, target: self, action: #selector(didPressHejButton))
+        tableView.rowHeight = UITableView.automaticDimension
+        
         // Do any additional setup after loading the view.
-        tableView.register(TrafficCell.self, forCellReuseIdentifier: TrafficCellIdentifier)
+        // tableView.register(TrafficCell.self, forCellReuseIdentifier: TrafficCellIdentifier)
+        
+        // These two below are already assigned in Storyboard
 //        tableView.delegate = self
 //        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
         loadData()
     }
     
@@ -44,8 +53,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.hideLoadingSpinner()
             switch result {
             case .success(let data):
-                self.events = data.ResponseData.TrafficTypes[0].Events
-                print(self.events)
+                self.trafficTypes = data.ResponseData.TrafficTypes
+                //self.events = data
+                //print(self.events)
                 self.tableView.reloadData()
             case .failure(let error):
                 print(error)
@@ -66,17 +76,79 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: - UITableViewDataSource
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return trafficTypes.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return trafficTypes[section].Events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TrafficCellIdentifier, for: indexPath) as? TrafficCell else {
             return UITableViewCell()
         }
-        let event = events[indexPath.row]
-        cell.textLabel?.text = event.Message
+        let trafficType = trafficTypes[indexPath.section]
+        let event = trafficType.Events[indexPath.row]
+//        let event = events[indexPath.row]
+        //cell.textLabel?.text = event.Message
+        
+        cell.cellMessage.text = event.Message.trimmingCharacters(in: .whitespacesAndNewlines)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let trafficType = trafficTypes[section]
+        
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
+        //header.backgroundColor = .red
+        
+        let imageView = UIImageView(image: imageIcon(forCategory: trafficType.currentCategory()))
+        header.addSubview(imageView)
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame = CGRect(x: 5, y: 20, width: header.frame.size.height - 10, height: header.frame.size.height - 10)
+        
+        let label = UILabel(frame: CGRect(x: 20 + imageView.frame.size.width, y: 20, width: header.frame.size.width - 15 - imageView.frame.size.width, height: header.frame.size.height - 10))
+        header.addSubview(label)
+        label.text = trafficType.Name
+        
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 70
+    }
+    
+    /*func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let trafficType = trafficTypes[section]
+        print(trafficType.currentCategory())
+        print(trafficType.Type)
+//        switch trafficType.Name {
+//        case TrafficTypesIcons.subway:
+//            <#code#>
+//        default:
+//            <#code#>
+//        }
+        let emoji = emoji(forCategory: trafficType.currentCategory())
+        return emoji //"\(emoji) \(trafficType.Name)"
+        
+    }*/
+    
+    func imageIcon(forCategory category: TrafficCategory) -> UIImage? {
+        switch category {
+        
+        case .metro: return UIImage(named: "metro")
+        case .train: return UIImage(named: "train")
+        case .local: return UIImage(named: "local")
+        case .tram: return UIImage(named: "tram")
+        case .bus: return UIImage(named: "bus")
+        case .ferry: return UIImage(named: "ferry")
+        
+        case .unknown: return UIImage(systemName: "square.and.arrow.up.fill")
+        
+            
+        }
     }
     
     // MARK: - UITableViewDelegate

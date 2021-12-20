@@ -22,10 +22,24 @@ struct TraficTypes: Decodable {
     var TrafficTypes: [TrafficType]
 }
 
+enum TrafficCategory: String {
+    case metro = "metro"
+    case train = "train"
+    case local = "local"
+    case tram = "tram"
+    case bus = "bus"
+    case ferry = "fer"
+    case unknown = "unknown"
+}
 
 struct TrafficType: Decodable {
     var Name: String
+    var `Type`: String
     var Events: [EventsInfo]
+
+    func currentCategory() -> TrafficCategory {
+        return TrafficCategory(rawValue: Type) ?? .unknown
+    }
 }
 
 struct EventsInfo : Decodable {

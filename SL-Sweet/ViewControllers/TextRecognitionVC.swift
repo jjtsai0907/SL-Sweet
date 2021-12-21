@@ -8,9 +8,12 @@
 import UIKit
 import Vision
 
-class TextRecognitionVC: UIViewController {
+class TextRecognitionVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
+    
+    
+    
     
     private let label: UILabel = {
        let label = UILabel()
@@ -21,7 +24,7 @@ class TextRecognitionVC: UIViewController {
     
     private let imageView: UIImageView = {
        let imageView = UIImageView()
-        imageView.image = UIImage(named: "boardingGateImage")
+        //imageView.image = UIImage(named: "boardingGateImage")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -36,7 +39,8 @@ class TextRecognitionVC: UIViewController {
         view.addSubview(imageView)
         
         showSpinner()
-        recognizeText(image: imageView.image)
+        showCamera()
+        //recognizeText(image: imageView.image)
     }
     
     override func viewDidLayoutSubviews() {
@@ -44,12 +48,38 @@ class TextRecognitionVC: UIViewController {
         imageView.frame = CGRect(x: 20,
                                  y: view.safeAreaInsets.top,
                                  width: view.frame.size.width - 40,
-                                 height: view.frame.size.width - 40)
+                                 height: view.frame.size.width - 80)
         
         label.frame = CGRect(x: 20,
                              y: view.frame.size.width + view.safeAreaInsets.top,
                              width: view.frame.size.width - 40,
                              height: 200)
+    }
+    
+    
+    // MARK: - Camera
+    
+    private func showCamera() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+        guard let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        
+        imageView.image = photo
+        imageView.isHidden = false
+        recognizeText(image: imageView.image)
+        
     }
     
     // MARK: - Loading Spinner

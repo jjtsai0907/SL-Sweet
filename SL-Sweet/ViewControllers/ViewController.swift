@@ -7,12 +7,6 @@
 
 import UIKit
 
-//enum TrafficTypesIcons {
-//    case bus = "buss"
-//    case tram = "spårvagn"
-//    case subway = "tunne"
-//}
-
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -45,7 +39,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @objc func didPressHejButton() {
-        
         guard let textRecognitionVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TextRecognitionVC") as? TextRecognitionVC else { return }
         
         navigationController?.pushViewController(textRecognitionVC, animated: true)
@@ -70,6 +63,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    // MARK: Loading Spinner
+    
     func showLoadingSpinner() {
         loadingSpinner.isHidden = false
         loadingSpinner.startAnimating()
@@ -79,6 +74,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         loadingSpinner.stopAnimating()
         loadingSpinner.isHidden = true
     }
+    
+    
+    
     
     // MARK: - UITableViewDataSource
     

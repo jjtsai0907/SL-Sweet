@@ -19,7 +19,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="0LZ-V8-7oe"/>
-                        <segue destination="JCx-LS-jOT" kind="relationship" relationship="viewControllers" id="o7G-Bn-5TS"/>
+                        <segue destination="pUj-0P-tkJ" kind="relationship" relationship="viewControllers" id="CO7-Mf-X7B"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LSB-9t-DUo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -27,21 +27,21 @@
             <point key="canvasLocation" x="-1954" y="-471"/>
         </scene>
         <!--Item-->
-        <scene sceneID="gKF-nT-yH8">
+        <scene sceneID="I5J-BQ-xXg">
             <objects>
-                <navigationController id="jrh-cC-Tcw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Vlr-Y2-iIA"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="IXh-WL-jDJ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                <navigationController id="pUj-0P-tkJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="20X-tU-aC7"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fvh-DR-Liz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="A1q-oF-svl"/>
+                        <segue destination="JCx-LS-jOT" kind="relationship" relationship="rootViewController" id="oYu-GJ-CZ8"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mci-7D-VwO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M8b-li-nxz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2909" y="267"/>
+            <point key="canvasLocation" x="-1354" y="267"/>
         </scene>
         <!--Traffic Status-->
         <scene sceneID="tne-QT-ifu">
@@ -121,10 +121,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="M5c-MK-ndw">
-                                <rect key="frame" x="188.5" y="410" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="432" width="37" height="37"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NoN-HF-5FA" userLabel="Gallery">
-                                <rect key="frame" x="50" y="70" width="100" height="100"/>
+                                <rect key="frame" x="50" y="350" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="gallery"/>
                                 <connections>
@@ -132,7 +132,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dcj-Cs-5rf" userLabel="Camera">
-                                <rect key="frame" x="271" y="70" width="100" height="100"/>
+                                <rect key="frame" x="271" y="350" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="camera"/>
                                 <connections>
@@ -148,18 +148,32 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Text Recognition" selectedImage="camera.viewfinder" catalog="system" id="EJz-1I-SqI"/>
+                    <navigationItem key="navigationItem" id="qrK-gP-KDc"/>
                     <connections>
                         <outlet property="loadingSpinner" destination="M5c-MK-ndw" id="GOf-pL-35p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBT-ub-JKx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1241" y="267"/>
+            <point key="canvasLocation" x="-554" y="266"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Wfh-N6-Cfn">
+            <objects>
+                <viewController id="jPa-dE-nW0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FVl-6u-DPz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="rnR-xh-GDm"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="liq-yU-Xkj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sVa-DP-GTx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-748" y="1014"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="0LZ-V8-7oe"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="camera" width="256" height="256"/>
         <image name="camera.viewfinder" catalog="system" width="128" height="115"/>
@@ -170,6 +184,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

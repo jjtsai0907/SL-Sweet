@@ -60,7 +60,10 @@ class TextRecognitionVC: UIViewController, UIImagePickerControllerDelegate, UINa
     
     
     @IBAction func showGallery(_ sender: UIButton) {
-        print("pressed")
+        let vc = UIViewController()
+        vc.view.backgroundColor = .brown
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func showCamera(_ sender: UIButton) {

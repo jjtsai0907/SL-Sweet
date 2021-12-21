@@ -20,6 +20,7 @@
 		B9A4E473275EA60B00F0BB49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9A4E472275EA60B00F0BB49 /* Assets.xcassets */; };
 		B9A4E476275EA60B00F0BB49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9A4E474275EA60B00F0BB49 /* LaunchScreen.storyboard */; };
 		B9FAD7372770A794007A9B98 /* TextRecognitionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FAD7362770A794007A9B98 /* TextRecognitionVC.swift */; };
+		B9FAD7392772739F007A9B98 /* RecognitionDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FAD7382772739F007A9B98 /* RecognitionDisplayVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		B9A4E475275EA60B00F0BB49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9A4E477275EA60B00F0BB49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9FAD7362770A794007A9B98 /* TextRecognitionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionVC.swift; sourceTree = "<group>"; };
+		B9FAD7382772739F007A9B98 /* RecognitionDisplayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognitionDisplayVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			children = (
 				B9A4E46D275EA60900F0BB49 /* ViewController.swift */,
 				B9FAD7362770A794007A9B98 /* TextRecognitionVC.swift */,
+				B9FAD7382772739F007A9B98 /* RecognitionDisplayVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B97F93AE27607D8900487203 /* TrafficStatusFetcher.swift in Sources */,
+				B9FAD7392772739F007A9B98 /* RecognitionDisplayVC.swift in Sources */,
 				B9A4E46E275EA60900F0BB49 /* ViewController.swift in Sources */,
 				B97F93AB275F421C00487203 /* Route.swift in Sources */,
 				B9A4E46A275EA60900F0BB49 /* AppDelegate.swift in Sources */,

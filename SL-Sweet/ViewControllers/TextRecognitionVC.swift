@@ -38,22 +38,33 @@ class TextRecognitionVC: UIViewController, UIImagePickerControllerDelegate, UINa
         view.addSubview(label)
         view.addSubview(imageView)
         
-        showSpinner()
-        showCamera()
+        loadingSpinner.isHidden = true
+        
+        //showSpinner()
+        //showCamera()
         //recognizeText(image: imageView.image)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         imageView.frame = CGRect(x: 20,
-                                 y: view.safeAreaInsets.top,
+                                 y: view.frame.size.height / 4 + 40,
                                  width: view.frame.size.width - 40,
                                  height: view.frame.size.width - 80)
         
         label.frame = CGRect(x: 20,
-                             y: view.frame.size.width + view.safeAreaInsets.top,
+                             y: view.frame.size.height / 2 + 100,
                              width: view.frame.size.width - 40,
                              height: 200)
+    }
+    
+    
+    @IBAction func showGallery(_ sender: UIButton) {
+        print("pressed")
+    }
+    
+    @IBAction func showCamera(_ sender: UIButton) {
+        showCamera()
     }
     
     

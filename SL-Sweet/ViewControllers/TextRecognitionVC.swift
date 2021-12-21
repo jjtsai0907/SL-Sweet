@@ -12,7 +12,7 @@ class TextRecognitionVC: UIViewController, UIImagePickerControllerDelegate, UINa
     
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     
-    
+    private let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "recognitionDisplayVC")
     
     
     private let label: UILabel = {
@@ -60,14 +60,14 @@ class TextRecognitionVC: UIViewController, UIImagePickerControllerDelegate, UINa
     
     
     @IBAction func showGallery(_ sender: UIButton) {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .brown
+       
         
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func showCamera(_ sender: UIButton) {
-        showCamera()
+        navigationController?.pushViewController(vc, animated: true)
+        //showCamera()
     }
     
     

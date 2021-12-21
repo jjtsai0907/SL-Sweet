@@ -157,10 +157,10 @@
             </objects>
             <point key="canvasLocation" x="-554" y="266"/>
         </scene>
-        <!--View Controller-->
+        <!--Recognition DisplayVC-->
         <scene sceneID="Wfh-N6-Cfn">
             <objects>
-                <viewController id="jPa-dE-nW0" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="recognitionDisplayVC" id="jPa-dE-nW0" customClass="RecognitionDisplayVC" customModule="SL_Sweet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FVl-6u-DPz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

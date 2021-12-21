@@ -35,6 +35,7 @@ class TextRecognitionVC: UIViewController {
         view.addSubview(label)
         view.addSubview(imageView)
         
+        
         recognizeText(image: imageView.image)
     }
     
@@ -55,32 +56,36 @@ class TextRecognitionVC: UIViewController {
     // MARK: - Text Recognition
     
     private func recognizeText(image: UIImage?) {
-        guard let cgImage = image?.cgImage else { return }
         
-        // Handler
-        let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
-        
-        // Request
-        let request = VNRecognizeTextRequest { [weak self] request, error in
-            guard let observations = request.results as? [VNRecognizedTextObservation], error == nil else {
-                return }
-            let text = observations.compactMap({
-                $0.topCandidates(1).first?.string
-            }).joined(separator: ", ")
+        DispatchQueue.global().async {
+            guard let cgImage = image?.cgImage else { return }
             
-            DispatchQueue.main.async {
-                self?.label.text = text
+            // Handler
+            let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+            
+            // Request
+            let request = VNRecognizeTextRequest { [weak self] request, error in
+                guard let observations = request.results as? [VNRecognizedTextObservation], error == nil else {
+                    return }
+                let text = observations.compactMap({
+                    $0.topCandidates(1).first?.string
+                }).joined(separator: ", ")
+                
+                DispatchQueue.main.async {
+                    self?.label.text = text
+                }
+                
+                print(text)
             }
-            
-            print(text)
+            // Process request
+            do {
+                try handler.perform([request])
+            }
+            catch {
+                print(error)
+            }
         }
-        // Process request
-        do {
-            try handler.perform([request])
-        }
-        catch {
-            print(error)
-        }
+        
         
         
     }

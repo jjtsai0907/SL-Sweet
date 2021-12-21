@@ -10,10 +10,10 @@ import Vision
 
 class TextRecognitionVC: UIViewController {
     
+    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     
     private let label: UILabel = {
        let label = UILabel()
-        label.text = "Loading.."
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
@@ -35,7 +35,7 @@ class TextRecognitionVC: UIViewController {
         view.addSubview(label)
         view.addSubview(imageView)
         
-        
+        showSpinner()
         recognizeText(image: imageView.image)
     }
     
@@ -50,6 +50,22 @@ class TextRecognitionVC: UIViewController {
                              y: view.frame.size.width + view.safeAreaInsets.top,
                              width: view.frame.size.width - 40,
                              height: 200)
+    }
+    
+    // MARK: - Loading Spinner
+    
+    private func showSpinner() {
+        loadingSpinner.isHidden = false
+        loadingSpinner.startAnimating()
+        label.isHidden = true
+        imageView.isHidden = true
+    }
+    
+    private func hideLoadingSpinner() {
+        loadingSpinner.isHidden = true
+        loadingSpinner.stopAnimating()
+        label.isHidden = false
+        imageView.isHidden = false
     }
     
     
@@ -73,6 +89,7 @@ class TextRecognitionVC: UIViewController {
                 
                 DispatchQueue.main.async {
                     self?.label.text = text
+                    self?.hideLoadingSpinner()
                 }
                 
                 print(text)

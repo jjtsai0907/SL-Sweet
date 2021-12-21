@@ -100,10 +100,22 @@
                     <view key="view" contentMode="scaleToFill" id="d0J-sY-dS3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="M5c-MK-ndw">
+                                <rect key="frame" x="188.5" y="482.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="73j-zB-WRs"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="M5c-MK-ndw" firstAttribute="centerY" secondItem="73j-zB-WRs" secondAttribute="centerY" id="6f0-cP-Hgt"/>
+                            <constraint firstItem="M5c-MK-ndw" firstAttribute="centerX" secondItem="73j-zB-WRs" secondAttribute="centerX" id="aEN-IT-1v4"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fmD-lE-Hce"/>
+                    <connections>
+                        <outlet property="loadingSpinner" destination="M5c-MK-ndw" id="GOf-pL-35p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBT-ub-JKx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -116,9 +128,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

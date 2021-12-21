@@ -7,12 +7,6 @@
 
 import UIKit
 
-//enum TrafficTypesIcons {
-//    case bus = "buss"
-//    case tram = "spårvagn"
-//    case subway = "tunne"
-//}
-
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -28,6 +22,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         title = "Traffic State"
         tableView.backgroundColor =  #colorLiteral(red: 1, green: 0.6862745098, blue: 0.6862745098, alpha: 1)
+        
+        // navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named:"add"), style: .plain, target: self, action: #selector(addTapped))
+        // navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hej", style: .plain, target: self, action: #selector(didPressHejButton))
         tableView.rowHeight = UITableView.automaticDimension
         
@@ -42,7 +39,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @objc func didPressHejButton() {
-        print("Hej")
+        guard let textRecognitionVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TextRecognitionVC") as? TextRecognitionVC else { return }
+        
+        navigationController?.pushViewController(textRecognitionVC, animated: true)
     }
     
     func loadData() {
@@ -64,6 +63,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    // MARK: Loading Spinner
+    
     func showLoadingSpinner() {
         loadingSpinner.isHidden = false
         loadingSpinner.startAnimating()
@@ -73,6 +74,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         loadingSpinner.stopAnimating()
         loadingSpinner.isHidden = true
     }
+    
+    
+    
     
     // MARK: - UITableViewDataSource
     

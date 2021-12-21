@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jrh-cC-Tcw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uu8-Cu-Olw">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -8,10 +8,29 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="OVP-Xh-JmL">
+            <objects>
+                <tabBarController id="Uu8-Cu-Olw" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MhN-p5-zfs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="0LZ-V8-7oe"/>
+                        <segue destination="JCx-LS-jOT" kind="relationship" relationship="viewControllers" id="o7G-Bn-5TS"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LSB-9t-DUo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1954" y="-471"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="gKF-nT-yH8">
             <objects>
                 <navigationController id="jrh-cC-Tcw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Vlr-Y2-iIA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="IXh-WL-jDJ">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -22,9 +41,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mci-7D-VwO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-946" y="-392"/>
+            <point key="canvasLocation" x="-2909" y="267"/>
         </scene>
-        <!--View Controller-->
+        <!--Traffic Status-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SL_Sweet" customModuleProvider="target" sceneMemberID="viewController">
@@ -67,7 +86,7 @@
                                 </connections>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="tfi-XT-2X2">
-                                <rect key="frame" x="188.5" y="456.5" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="410" width="37" height="37"/>
                                 <color key="color" systemColor="labelColor"/>
                             </activityIndicatorView>
                         </subviews>
@@ -82,18 +101,18 @@
                             <constraint firstItem="XMe-Tn-UCx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="qZe-sd-37B"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Traffic Status" selectedImage="waveform.path.ecg" catalog="system" id="QrQ-2b-zp3"/>
                     <navigationItem key="navigationItem" id="ykM-gO-6Yh"/>
                     <connections>
                         <outlet property="loadingSpinner" destination="tfi-XT-2X2" id="TEp-WH-jKV"/>
                         <outlet property="tableView" destination="XMe-Tn-UCx" id="GdW-0I-Cgk"/>
-                        <segue destination="JCx-LS-jOT" kind="show" identifier="toTextRecognitionVC" id="8Aa-xv-JkF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="-429"/>
+            <point key="canvasLocation" x="-2028" y="267"/>
         </scene>
-        <!--Text RecognitionVC-->
+        <!--Text Recognition-->
         <scene sceneID="5ay-BW-dFr">
             <objects>
                 <viewController storyboardIdentifier="TextRecognitionVC" id="JCx-LS-jOT" customClass="TextRecognitionVC" customModule="SL_Sweet" customModuleProvider="target" sceneMemberID="viewController">
@@ -102,7 +121,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="M5c-MK-ndw">
-                                <rect key="frame" x="188.5" y="482.5" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="410" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="73j-zB-WRs"/>
@@ -112,6 +131,7 @@
                             <constraint firstItem="M5c-MK-ndw" firstAttribute="centerX" secondItem="73j-zB-WRs" secondAttribute="centerX" id="aEN-IT-1v4"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Text Recognition" selectedImage="camera.viewfinder" catalog="system" id="EJz-1I-SqI"/>
                     <navigationItem key="navigationItem" id="fmD-lE-Hce"/>
                     <connections>
                         <outlet property="loadingSpinner" destination="M5c-MK-ndw" id="GOf-pL-35p"/>
@@ -119,10 +139,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBT-ub-JKx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="917" y="-393"/>
+            <point key="canvasLocation" x="-1241" y="267"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0LZ-V8-7oe"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="camera.viewfinder" catalog="system" width="128" height="115"/>
+        <image name="waveform.path.ecg" catalog="system" width="128" height="124"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -19,6 +19,7 @@
 		B9A4E471275EA60900F0BB49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9A4E46F275EA60900F0BB49 /* Main.storyboard */; };
 		B9A4E473275EA60B00F0BB49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9A4E472275EA60B00F0BB49 /* Assets.xcassets */; };
 		B9A4E476275EA60B00F0BB49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9A4E474275EA60B00F0BB49 /* LaunchScreen.storyboard */; };
+		B9FAD7372770A794007A9B98 /* TextRecognitionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FAD7362770A794007A9B98 /* TextRecognitionVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B9A4E472275EA60B00F0BB49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9A4E475275EA60B00F0BB49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9A4E477275EA60B00F0BB49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9FAD7362770A794007A9B98 /* TextRecognitionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,18 +97,27 @@
 		B9A4E468275EA60900F0BB49 /* SL-Sweet */ = {
 			isa = PBXGroup;
 			children = (
+				B9FAD7352770A742007A9B98 /* ViewControllers */,
 				B97F93B1276A27F300487203 /* Views */,
 				B97F93AC27607CCA00487203 /* Services */,
 				B97F93A9275F41F800487203 /* Models */,
 				B9A4E469275EA60900F0BB49 /* AppDelegate.swift */,
 				B9A4E46B275EA60900F0BB49 /* SceneDelegate.swift */,
-				B9A4E46D275EA60900F0BB49 /* ViewController.swift */,
 				B9A4E46F275EA60900F0BB49 /* Main.storyboard */,
 				B9A4E472275EA60B00F0BB49 /* Assets.xcassets */,
 				B9A4E474275EA60B00F0BB49 /* LaunchScreen.storyboard */,
 				B9A4E477275EA60B00F0BB49 /* Info.plist */,
 			);
 			path = "SL-Sweet";
+			sourceTree = "<group>";
+		};
+		B9FAD7352770A742007A9B98 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B9A4E46D275EA60900F0BB49 /* ViewController.swift */,
+				B9FAD7362770A794007A9B98 /* TextRecognitionVC.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +195,7 @@
 				B9A4E46E275EA60900F0BB49 /* ViewController.swift in Sources */,
 				B97F93AB275F421C00487203 /* Route.swift in Sources */,
 				B9A4E46A275EA60900F0BB49 /* AppDelegate.swift in Sources */,
+				B9FAD7372770A794007A9B98 /* TextRecognitionVC.swift in Sources */,
 				B97F93B5276A49CB00487203 /* SectionHeader.swift in Sources */,
 				B97F93B3276A284E00487203 /* TrafficCell.swift in Sources */,
 				B97F93B02763B9A400487203 /* ApiKey.swift in Sources */,

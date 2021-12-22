@@ -7,19 +7,28 @@
 
 import UIKit
 import Vision
+import Combine
 
 class RecognitionDisplayVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    
+    private let recognitionDisplayVM = RecognitionDisplayVM()
+    
+    /*lazy var recognitionDisplayVM: RecognitionDisplayVM = {
+                let viewModel = RecognitionDisplayVM()
+                return viewModel
+            }()*/
+    
     private let label: UILabel = {
        let label = UILabel()
         label.numberOfLines = 0
+        label.text = "Heyyy"
         label.textAlignment = .center
         return label
     }()
     
     private let imageView: UIImageView = {
        let imageView = UIImageView()
-        //imageView.image = UIImage(named: "boardingGateImage")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -29,7 +38,7 @@ class RecognitionDisplayVC: UIViewController, UIImagePickerControllerDelegate, U
         view.addSubview(label)
         view.addSubview(imageView)
         // Do any additional setup after loading the view.
-        
+        bindViewModel()
         showCamera()
     }
     
@@ -66,46 +75,24 @@ class RecognitionDisplayVC: UIViewController, UIImagePickerControllerDelegate, U
         
         imageView.image = photo
         imageView.isHidden = false
-        recognizeText(image: imageView.image)
+        recognitionDisplayVM.recognizeText(image: imageView.image)
+        print("Running VM recognizeText()")
+        label.text = recognitionDisplayVM.resultText
         
+        print("VC recognitionDisplayVM.resultText: \(recognitionDisplayVM.resultText)")
     }
-
-    // MARK: - Text Recognition
     
-    private func recognizeText(image: UIImage?) {
-        
-        DispatchQueue.global().async {
-            guard let cgImage = image?.cgImage else { return }
-            
-            // Handler
-            let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
-            
-            // Request
-            let request = VNRecognizeTextRequest { [weak self] request, error in
-                guard let observations = request.results as? [VNRecognizedTextObservation], error == nil else {
-                    return }
-                let text = observations.compactMap({
-                    $0.topCandidates(1).first?.string
-                }).joined(separator: ", ")
-                
-                DispatchQueue.main.async {
-                    self?.label.text = text
-                   // self?.hideLoadingSpinner()
-                }
-                
-                print(text)
-            }
-            // Process request
-            do {
-                try handler.perform([request])
-            }
-            catch {
-                print(error)
-            }
-        }
+    private var cancellables: Set<AnyCancellable> = []
+    
+    private func bindViewModel() {
         
         
+        recognitionDisplayVM.$resultText.sink { [weak self] value in
+            self?.label.text = value
+        }.store(in: &cancellables)
         
+        
+               
     }
 
 }

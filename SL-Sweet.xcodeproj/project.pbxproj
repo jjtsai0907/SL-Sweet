@@ -22,6 +22,7 @@
 		B9FAD7372770A794007A9B98 /* TextRecognitionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FAD7362770A794007A9B98 /* TextRecognitionVC.swift */; };
 		B9FAD7392772739F007A9B98 /* RecognitionDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FAD7382772739F007A9B98 /* RecognitionDisplayVC.swift */; };
 		B9FF590A2773096400012860 /* RecognitionDisplayVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF59092773096400012860 /* RecognitionDisplayVM.swift */; };
+		B9FF590C2773347500012860 /* TextRecognitionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF590B2773347500012860 /* TextRecognitionVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		B9FAD7362770A794007A9B98 /* TextRecognitionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionVC.swift; sourceTree = "<group>"; };
 		B9FAD7382772739F007A9B98 /* RecognitionDisplayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognitionDisplayVC.swift; sourceTree = "<group>"; };
 		B9FF59092773096400012860 /* RecognitionDisplayVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognitionDisplayVM.swift; sourceTree = "<group>"; };
+		B9FF590B2773347500012860 /* TextRecognitionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				B9FAD7362770A794007A9B98 /* TextRecognitionVC.swift */,
+				B9FF590B2773347500012860 /* TextRecognitionVM.swift */,
 			);
 			path = TextRecognition;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				B9FF590A2773096400012860 /* RecognitionDisplayVM.swift in Sources */,
 				B97F93B02763B9A400487203 /* ApiKey.swift in Sources */,
 				B9A4E46C275EA60900F0BB49 /* SceneDelegate.swift in Sources */,
+				B9FF590C2773347500012860 /* TextRecognitionVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

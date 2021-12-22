@@ -75,16 +75,28 @@ class RecognitionDisplayVM: NSObject, ObservableObject, UIImagePickerControllerD
         guard let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         
         self.imageView = photo
-        //self.imageView.isHidden = false
         
         recognizeText(image: photo)
         print("Running VM recognizeText()")
-        //label.text = recognitionDisplayVM.resultText
         
-        //print("VC recognitionDisplayVM.resultText: \(recognitionDisplayVM.resultText)")
     }
     
     
+    // MARK: - Loading Spinner
+    
+    private func showSpinner() {
+        //loadingSpinner.isHidden = false
+        //loadingSpinner.startAnimating()
+        //label.isHidden = true
+        //imageView.isHidden = true
+    }
+    
+    private func hideLoadingSpinner() {
+        //loadingSpinner.isHidden = true
+        //loadingSpinner.stopAnimating()
+        //label.isHidden = false
+        //imageView.isHidden = false
+    }
     
 
 }

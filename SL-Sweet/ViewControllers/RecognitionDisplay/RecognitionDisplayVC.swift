@@ -9,7 +9,7 @@ import UIKit
 import Vision
 import Combine
 
-class RecognitionDisplayVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class RecognitionDisplayVC: UIViewController {
 
     
     private let recognitionDisplayVM = RecognitionDisplayVM()
@@ -22,7 +22,7 @@ class RecognitionDisplayVC: UIViewController, UIImagePickerControllerDelegate, U
     private let label: UILabel = {
        let label = UILabel()
         label.numberOfLines = 0
-        label.text = "Heyyy"
+        label.text = "Start Text"
         label.textAlignment = .center
         return label
     }()
@@ -39,7 +39,9 @@ class RecognitionDisplayVC: UIViewController, UIImagePickerControllerDelegate, U
         view.addSubview(imageView)
         // Do any additional setup after loading the view.
         bindViewModel()
-        showCamera()
+        recognitionDisplayVM.showCamera { 
+            self.present(recognitionDisplayVM.picker, animated: true, completion: nil)
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -54,45 +56,21 @@ class RecognitionDisplayVC: UIViewController, UIImagePickerControllerDelegate, U
                              width: view.frame.size.width - 40,
                              height: 200)
     }
-    // MARK: - Camera
     
-    private func showCamera() {
-        let picker = UIImagePickerController()
-        picker.sourceType = .photoLibrary
-        picker.delegate = self
-        present(picker, animated: true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        picker.dismiss(animated: true, completion: nil)
-        
-        guard let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
-        
-        imageView.image = photo
-        imageView.isHidden = false
-        recognitionDisplayVM.recognizeText(image: imageView.image)
-        print("Running VM recognizeText()")
-        label.text = recognitionDisplayVM.resultText
-        
-        print("VC recognitionDisplayVM.resultText: \(recognitionDisplayVM.resultText)")
-    }
     
     private var cancellables: Set<AnyCancellable> = []
     
     private func bindViewModel() {
         
-        
         recognitionDisplayVM.$resultText.sink { [weak self] value in
             self?.label.text = value
         }.store(in: &cancellables)
+     
+        recognitionDisplayVM.$imageView.sink { [weak self] image in
+            self?.imageView.image = image
+        }.store(in: &cancellables)
         
         
-               
     }
 
 }

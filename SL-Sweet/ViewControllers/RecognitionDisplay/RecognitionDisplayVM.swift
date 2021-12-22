@@ -10,15 +10,15 @@ import Vision
 import UIKit
 import Combine
 
-class RecognitionDisplayVM: ObservableObject {
+class RecognitionDisplayVM: NSObject, ObservableObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @Published var resultText = "Default"
-    
-    
+    @Published var resultText = "Default in VM"
+    @Published var imageView = UIImage()
+    @Published var picker = UIImagePickerController()
     
     // MARK: - Text Recognition
     
-    func recognizeText(image: UIImage?)  {
+    private func recognizeText(image: UIImage?)  {
         
         DispatchQueue.global().async {
             guard let cgImage = image?.cgImage else { return }
@@ -53,5 +53,38 @@ class RecognitionDisplayVM: ObservableObject {
         
         
     }
+    
+    
+    // MARK: - Camera
+    
+    func showCamera(function: () -> () ) {
+        //picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        function()
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+        guard let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        
+        self.imageView = photo
+        //self.imageView.isHidden = false
+        
+        recognizeText(image: photo)
+        print("Running VM recognizeText()")
+        //label.text = recognitionDisplayVM.resultText
+        
+        //print("VC recognitionDisplayVM.resultText: \(recognitionDisplayVM.resultText)")
+    }
+    
+    
+    
 
 }

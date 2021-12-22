@@ -10,22 +10,21 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let fetcher = TrafficStatusFetcher()
+    private let trafficStatusVM = TrafficStatusVM()
+    private let fetcher = TrafficStatusFetcher()
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
     private var trafficTypes = [TrafficType]()
     
-    private let TrafficCellIdentifier = "TraffiCell"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Traffic State"
         tableView.backgroundColor =  #colorLiteral(red: 1, green: 0.6862745098, blue: 0.6862745098, alpha: 1)
         
-        // navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named:"add"), style: .plain, target: self, action: #selector(addTapped))
-        // navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hej", style: .plain, target: self, action: #selector(didPressHejButton))
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hej", style: .plain, target: self, action: #selector(didPressHejButton))
         tableView.rowHeight = UITableView.automaticDimension
         
         // Do any additional setup after loading the view.
@@ -38,11 +37,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         loadData()
     }
     
-    @objc func didPressHejButton() {
-        guard let textRecognitionVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TextRecognitionVC") as? TextRecognitionVC else { return }
-        
-        navigationController?.pushViewController(textRecognitionVC, animated: true)
-    }
+    
     
     func loadData() {
         showLoadingSpinner()
@@ -89,7 +84,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TrafficCellIdentifier, for: indexPath) as? TrafficCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: trafficStatusVM.TrafficCellIdentifier, for: indexPath) as? TrafficCell else {
             return UITableViewCell()
         }
         let trafficType = trafficTypes[indexPath.section]
@@ -108,7 +103,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
         //header.backgroundColor = .red
         
-        let imageView = UIImageView(image: imageIcon(forCategory: trafficType.currentCategory()))
+        let imageView = UIImageView(image: trafficStatusVM.imageIcon(forCategory: trafficType.currentCategory()))
         header.addSubview(imageView)
         imageView.contentMode = .scaleAspectFit
         imageView.frame = CGRect(x: 5, y: 20, width: header.frame.size.height - 10, height: header.frame.size.height - 10)
@@ -123,45 +118,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 70
     }
+
     
-    /*func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let trafficType = trafficTypes[section]
-        print(trafficType.currentCategory())
-        print(trafficType.Type)
-//        switch trafficType.Name {
-//        case TrafficTypesIcons.subway:
-//            <#code#>
-//        default:
-//            <#code#>
-//        }
-        let emoji = emoji(forCategory: trafficType.currentCategory())
-        return emoji //"\(emoji) \(trafficType.Name)"
-        
-    }*/
     
-    func imageIcon(forCategory category: TrafficCategory) -> UIImage? {
-        switch category {
-        
-        case .metro: return UIImage(named: "metro")
-        case .train: return UIImage(named: "train")
-        case .local: return UIImage(named: "local")
-        case .tram: return UIImage(named: "tram")
-        case .bus: return UIImage(named: "bus")
-        case .ferry: return UIImage(named: "ferry")
-        
-        case .unknown: return UIImage(systemName: "square.and.arrow.up.fill")
-        
-            
-        }
-    }
     
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //tableView.deselectRow(at: indexPath, animated: true)
-        title = "Apa"
         tableView.deselectRow(at: indexPath, animated: true)
-        
     }
     
 

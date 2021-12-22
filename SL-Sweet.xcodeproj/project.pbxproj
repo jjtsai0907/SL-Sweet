@@ -21,6 +21,9 @@
 		B9A4E476275EA60B00F0BB49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9A4E474275EA60B00F0BB49 /* LaunchScreen.storyboard */; };
 		B9FAD7372770A794007A9B98 /* TextRecognitionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FAD7362770A794007A9B98 /* TextRecognitionVC.swift */; };
 		B9FAD7392772739F007A9B98 /* RecognitionDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FAD7382772739F007A9B98 /* RecognitionDisplayVC.swift */; };
+		B9FF590A2773096400012860 /* RecognitionDisplayVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF59092773096400012860 /* RecognitionDisplayVM.swift */; };
+		B9FF590C2773347500012860 /* TextRecognitionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF590B2773347500012860 /* TextRecognitionVM.swift */; };
+		B9FF591027735FD500012860 /* TrafficStatusVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF590F27735FD500012860 /* TrafficStatusVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		B9A4E477275EA60B00F0BB49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9FAD7362770A794007A9B98 /* TextRecognitionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionVC.swift; sourceTree = "<group>"; };
 		B9FAD7382772739F007A9B98 /* RecognitionDisplayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognitionDisplayVC.swift; sourceTree = "<group>"; };
+		B9FF59092773096400012860 /* RecognitionDisplayVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognitionDisplayVM.swift; sourceTree = "<group>"; };
+		B9FF590B2773347500012860 /* TextRecognitionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionVM.swift; sourceTree = "<group>"; };
+		B9FF590F27735FD500012860 /* TrafficStatusVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficStatusVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,11 +122,38 @@
 		B9FAD7352770A742007A9B98 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B9A4E46D275EA60900F0BB49 /* ViewController.swift */,
-				B9FAD7362770A794007A9B98 /* TextRecognitionVC.swift */,
-				B9FAD7382772739F007A9B98 /* RecognitionDisplayVC.swift */,
+				B9FF59082773064300012860 /* RecognitionDisplay */,
+				B9FF59072773062A00012860 /* TextRecognition */,
+				B9FF59062773060B00012860 /* TrafficStatus */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B9FF59062773060B00012860 /* TrafficStatus */ = {
+			isa = PBXGroup;
+			children = (
+				B9A4E46D275EA60900F0BB49 /* ViewController.swift */,
+				B9FF590F27735FD500012860 /* TrafficStatusVM.swift */,
+			);
+			path = TrafficStatus;
+			sourceTree = "<group>";
+		};
+		B9FF59072773062A00012860 /* TextRecognition */ = {
+			isa = PBXGroup;
+			children = (
+				B9FAD7362770A794007A9B98 /* TextRecognitionVC.swift */,
+				B9FF590B2773347500012860 /* TextRecognitionVM.swift */,
+			);
+			path = TextRecognition;
+			sourceTree = "<group>";
+		};
+		B9FF59082773064300012860 /* RecognitionDisplay */ = {
+			isa = PBXGroup;
+			children = (
+				B9FAD7382772739F007A9B98 /* RecognitionDisplayVC.swift */,
+				B9FF59092773096400012860 /* RecognitionDisplayVM.swift */,
+			);
+			path = RecognitionDisplay;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,8 +235,11 @@
 				B9FAD7372770A794007A9B98 /* TextRecognitionVC.swift in Sources */,
 				B97F93B5276A49CB00487203 /* SectionHeader.swift in Sources */,
 				B97F93B3276A284E00487203 /* TrafficCell.swift in Sources */,
+				B9FF590A2773096400012860 /* RecognitionDisplayVM.swift in Sources */,
 				B97F93B02763B9A400487203 /* ApiKey.swift in Sources */,
+				B9FF591027735FD500012860 /* TrafficStatusVM.swift in Sources */,
 				B9A4E46C275EA60900F0BB49 /* SceneDelegate.swift in Sources */,
+				B9FF590C2773347500012860 /* TextRecognitionVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

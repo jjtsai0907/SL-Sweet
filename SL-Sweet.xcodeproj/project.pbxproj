@@ -28,6 +28,8 @@
 		B9FF59152773B60800012860 /* RealtimeInfoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF59142773B60800012860 /* RealtimeInfoVM.swift */; };
 		B9FF59172773B71500012860 /* RealtimeInfoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF59162773B71500012860 /* RealtimeInfoFetcher.swift */; };
 		B9FF59192773B8C400012860 /* RealtimeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF59182773B8C400012860 /* RealtimeInfo.swift */; };
+		B9FF591C277483CB00012860 /* RealtimeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF591A277483CB00012860 /* RealtimeTableCell.swift */; };
+		B9FF591D277483CB00012860 /* RealtimeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9FF591B277483CB00012860 /* RealtimeTableCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		B9FF59142773B60800012860 /* RealtimeInfoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeInfoVM.swift; sourceTree = "<group>"; };
 		B9FF59162773B71500012860 /* RealtimeInfoFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeInfoFetcher.swift; sourceTree = "<group>"; };
 		B9FF59182773B8C400012860 /* RealtimeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeInfo.swift; sourceTree = "<group>"; };
+		B9FF591A277483CB00012860 /* RealtimeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeTableCell.swift; sourceTree = "<group>"; };
+		B9FF591B277483CB00012860 /* RealtimeTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RealtimeTableCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 		B97F93B1276A27F300487203 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B9FF591E277483DF00012860 /* RealtimeTableCell */,
 				B97F93B2276A284E00487203 /* TrafficCell.swift */,
 				B97F93B4276A49CB00487203 /* SectionHeader.swift */,
 				B97F93B6276A4A4100487203 /* SectionHeader.xib */,
@@ -176,6 +181,15 @@
 			path = RealtimeInfo;
 			sourceTree = "<group>";
 		};
+		B9FF591E277483DF00012860 /* RealtimeTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				B9FF591B277483CB00012860 /* RealtimeTableCell.xib */,
+				B9FF591A277483CB00012860 /* RealtimeTableCell.swift */,
+			);
+			path = RealtimeTableCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -235,6 +249,7 @@
 			files = (
 				B97F93B7276A4A4100487203 /* SectionHeader.xib in Resources */,
 				B9A4E476275EA60B00F0BB49 /* LaunchScreen.storyboard in Resources */,
+				B9FF591D277483CB00012860 /* RealtimeTableCell.xib in Resources */,
 				B9A4E473275EA60B00F0BB49 /* Assets.xcassets in Resources */,
 				B9A4E471275EA60900F0BB49 /* Main.storyboard in Resources */,
 			);
@@ -252,6 +267,7 @@
 				B9A4E46E275EA60900F0BB49 /* ViewController.swift in Sources */,
 				B97F93AB275F421C00487203 /* Route.swift in Sources */,
 				B9FF59172773B71500012860 /* RealtimeInfoFetcher.swift in Sources */,
+				B9FF591C277483CB00012860 /* RealtimeTableCell.swift in Sources */,
 				B9A4E46A275EA60900F0BB49 /* AppDelegate.swift in Sources */,
 				B9FF59152773B60800012860 /* RealtimeInfoVM.swift in Sources */,
 				B9FAD7372770A794007A9B98 /* TextRecognitionVC.swift in Sources */,

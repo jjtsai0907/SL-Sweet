@@ -18,6 +18,8 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
+    
+    private var nib = UINib(nibName: "RealtimeTableCell", bundle: nil)
     private var realtimeMetros = [Metro]()
     
     
@@ -25,6 +27,7 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
         super.viewDidLoad()
         view.addSubview(loadingSpinner)
         view.addSubview(tableView)
+        tableView.register(nib, forCellReuseIdentifier: "RealtimeTableCell")
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -71,39 +74,15 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RealtimeTableCell", for: indexPath) as! RealtimeTableCell
         
-        cell.textLabel?.text = "\(realtimeMetros[indexPath.row].GroupOfLine): \(realtimeMetros[indexPath.row].DisplayTime)"
+        cell.myLabel?.text = "\(realtimeMetros[indexPath.row].GroupOfLine): \(realtimeMetros[indexPath.row].DisplayTime)"
         
         return cell
-        /*
-         guard let cell = tableView.dequeueReusableCell(withIdentifier: trafficStatusVM.TrafficCellIdentifier, for: indexPath) as? TrafficCell else {
-             return UITableViewCell()
-         }
-         let trafficType = trafficTypes[indexPath.section]
-         let event = trafficType.Events[indexPath.row]
- //        let event = events[indexPath.row]
-         //cell.textLabel?.text = event.Message
-         
-         cell.cellMessage.text = event.Message.trimmingCharacters(in: .whitespacesAndNewlines)
-         return cell
-         */
+
     }
     
-    
-    
-    /*func setupUI() {
-        
-       NSLayoutConstraint.activate([
-        loadingSpinner.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-        loadingSpinner.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            loadingSpinner.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            loadingSpinner.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
-       
-        
-        
-    }*/
+
     
     
     // MARK: - UITableViewDelegate

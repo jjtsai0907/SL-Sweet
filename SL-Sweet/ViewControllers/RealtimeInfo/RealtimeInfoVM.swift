@@ -6,9 +6,16 @@
 //
 
 import Foundation
+import UIKit
 
 struct RealtimeInfoVM {
     
+    func startLoadingSpinner(loadingSpinner: UIActivityIndicatorView) {
+        loadingSpinner.startAnimating()
+    }
     
+    func stopLoadingSpinner(loadingSpinner: UIActivityIndicatorView) {
+        loadingSpinner.stopAnimating()
+    }
     
 }

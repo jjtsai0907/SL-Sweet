@@ -12,8 +12,14 @@ class RealtimeInfoVC: UIViewController {
     private let realtimeInfoVM = RealtimeInfoVM()
     private let realtimeInfoFetcher = RealtimeInfoFetcher()
     
+    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(loadingSpinner)
+        
+        
+        
         
         loadData()
        
@@ -21,6 +27,8 @@ class RealtimeInfoVC: UIViewController {
     
     
     func loadData() {
+        realtimeInfoVM.startLoadingSpinner(loadingSpinner: loadingSpinner)
+        
         realtimeInfoFetcher.fetchRealtimeInfo() { [weak self] result in
             
             guard let self = self else { return }
@@ -31,6 +39,11 @@ class RealtimeInfoVC: UIViewController {
                 //self.events = data
                 //print(self.events)
                 //self.tableView.reloadData()
+                
+                DispatchQueue.main.async {
+                    self.realtimeInfoVM.stopLoadingSpinner(loadingSpinner: self.loadingSpinner)
+                    self.loadingSpinner.isHidden = true
+                }
                 print("fetching real time data...\(data.ResponseData.Metros)")
             case .failure(let error):
                 print(error)
@@ -39,6 +52,23 @@ class RealtimeInfoVC: UIViewController {
         }
         
     }
+    
+    
+    
+    
+    
+    /*func setupUI() {
+        
+       NSLayoutConstraint.activate([
+        loadingSpinner.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+        loadingSpinner.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            loadingSpinner.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            loadingSpinner.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+       
+        
+        
+    }*/
 
 
 }

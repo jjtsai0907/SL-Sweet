@@ -151,14 +151,26 @@
         <!--Real Time-->
         <scene sceneID="Gu2-QQ-Jgm">
             <objects>
-                <viewController id="8Z0-51-tdr" customClass="RealtimeInfoVC" customModule="SL_Sweet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="realtimeInfoVC" id="8Z0-51-tdr" customClass="RealtimeInfoVC" customModule="SL_Sweet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7pm-CU-Zc9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0ph-vW-MbX">
+                                <rect key="frame" x="189" y="430" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="8iG-E9-Wcs"/>
                         <color key="backgroundColor" red="1" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0ph-vW-MbX" firstAttribute="centerX" secondItem="8iG-E9-Wcs" secondAttribute="centerX" id="T6K-CY-ZkV"/>
+                            <constraint firstItem="0ph-vW-MbX" firstAttribute="centerY" secondItem="8iG-E9-Wcs" secondAttribute="centerY" id="lQ9-Su-m8r"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Real Time" selectedImage="square.and.arrow.down" catalog="system" id="zu8-fD-hNa"/>
+                    <connections>
+                        <outlet property="loadingSpinner" destination="0ph-vW-MbX" id="dC8-4U-f55"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0zX-f5-G4b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

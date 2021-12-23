@@ -159,22 +159,41 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0ph-vW-MbX">
                                 <rect key="frame" x="189" y="430" width="37" height="37"/>
                             </activityIndicatorView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WVI-I4-VPa">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="pGO-bp-RHN">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pGO-bp-RHN" id="t5h-4b-rYD">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8iG-E9-Wcs"/>
                         <color key="backgroundColor" red="1" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="8iG-E9-Wcs" firstAttribute="bottom" secondItem="WVI-I4-VPa" secondAttribute="bottom" id="9E8-D9-heA"/>
+                            <constraint firstItem="WVI-I4-VPa" firstAttribute="leading" secondItem="8iG-E9-Wcs" secondAttribute="leading" id="ArU-D7-0KM"/>
                             <constraint firstItem="0ph-vW-MbX" firstAttribute="centerX" secondItem="8iG-E9-Wcs" secondAttribute="centerX" id="T6K-CY-ZkV"/>
                             <constraint firstItem="0ph-vW-MbX" firstAttribute="centerY" secondItem="8iG-E9-Wcs" secondAttribute="centerY" id="lQ9-Su-m8r"/>
+                            <constraint firstItem="8iG-E9-Wcs" firstAttribute="trailing" secondItem="WVI-I4-VPa" secondAttribute="trailing" id="mpg-de-Xvp"/>
+                            <constraint firstItem="8iG-E9-Wcs" firstAttribute="top" secondItem="WVI-I4-VPa" secondAttribute="top" constant="44" id="mvk-60-2hc"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Real Time" selectedImage="square.and.arrow.down" catalog="system" id="zu8-fD-hNa"/>
                     <connections>
                         <outlet property="loadingSpinner" destination="0ph-vW-MbX" id="dC8-4U-f55"/>
+                        <outlet property="tableView" destination="WVI-I4-VPa" id="FxD-gm-KSc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0zX-f5-G4b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="286" y="280"/>
+            <point key="canvasLocation" x="285.50724637681162" y="279.91071428571428"/>
         </scene>
         <!--Recognition DisplayVC-->
         <scene sceneID="Wfh-N6-Cfn">

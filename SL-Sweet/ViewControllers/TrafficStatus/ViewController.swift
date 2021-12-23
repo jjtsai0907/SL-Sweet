@@ -84,6 +84,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: trafficStatusVM.TrafficCellIdentifier, for: indexPath) as? TrafficCell else {
             return UITableViewCell()
         }

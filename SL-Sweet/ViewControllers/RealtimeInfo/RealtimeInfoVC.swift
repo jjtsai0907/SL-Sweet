@@ -21,12 +21,17 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
     
     private var nib = UINib(nibName: "RealtimeTableCell", bundle: nil)
     private var realtimeMetros = [Metro]()
+    private var realtimeBuses = [Bus]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(loadingSpinner)
         view.addSubview(tableView)
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.tableFooterView = UIView()
+        tableView.backgroundColor =  #colorLiteral(red: 1, green: 0.6862745098, blue: 0.6862745098, alpha: 1)
         tableView.register(nib, forCellReuseIdentifier: "RealtimeTableCell")
         tableView.delegate = self
         tableView.dataSource = self
@@ -46,11 +51,9 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
             //self.hideLoadingSpinner()
             switch result {
             case .success(let data):
-                self.realtimeMetros = data.ResponseData.Metros
-                //self.events = data
-                //print(self.events)
-               
                 
+                self.realtimeMetros = data.ResponseData.Metros
+              
                 DispatchQueue.main.async {
                     
                     self.realtimeInfoVM.stopLoadingSpinner(loadingSpinner: self.loadingSpinner)
@@ -70,26 +73,37 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return realtimeMetros.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RealtimeTableCell", for: indexPath) as! RealtimeTableCell
         
-        cell.myLabel?.text = "\(realtimeMetros[indexPath.row].GroupOfLine): \(realtimeMetros[indexPath.row].DisplayTime)"
-        
+        cell.myLabel.text = "\(realtimeMetros[indexPath.section])"
         return cell
 
     }
     
-
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return realtimeMetros.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 70
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Realtime Table"
+        // TO DO:
+    }
     
     
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped me!")
-        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 

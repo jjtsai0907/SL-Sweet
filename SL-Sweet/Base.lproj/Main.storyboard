@@ -156,8 +156,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0ph-vW-MbX">
-                                <rect key="frame" x="189" y="430" width="37" height="37"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0ph-vW-MbX">
+                                <rect key="frame" x="188.5" y="410" width="37" height="37"/>
                             </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WVI-I4-VPa">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
@@ -169,10 +169,10 @@
                         <constraints>
                             <constraint firstItem="8iG-E9-Wcs" firstAttribute="bottom" secondItem="WVI-I4-VPa" secondAttribute="bottom" id="9E8-D9-heA"/>
                             <constraint firstItem="WVI-I4-VPa" firstAttribute="leading" secondItem="8iG-E9-Wcs" secondAttribute="leading" id="ArU-D7-0KM"/>
-                            <constraint firstItem="0ph-vW-MbX" firstAttribute="centerX" secondItem="8iG-E9-Wcs" secondAttribute="centerX" id="T6K-CY-ZkV"/>
-                            <constraint firstItem="0ph-vW-MbX" firstAttribute="centerY" secondItem="8iG-E9-Wcs" secondAttribute="centerY" id="lQ9-Su-m8r"/>
                             <constraint firstItem="8iG-E9-Wcs" firstAttribute="trailing" secondItem="WVI-I4-VPa" secondAttribute="trailing" id="mpg-de-Xvp"/>
                             <constraint firstItem="8iG-E9-Wcs" firstAttribute="top" secondItem="WVI-I4-VPa" secondAttribute="top" constant="44" id="mvk-60-2hc"/>
+                            <constraint firstItem="0ph-vW-MbX" firstAttribute="centerY" secondItem="8iG-E9-Wcs" secondAttribute="centerY" id="wN1-bq-6vg"/>
+                            <constraint firstItem="0ph-vW-MbX" firstAttribute="centerX" secondItem="8iG-E9-Wcs" secondAttribute="centerX" id="znQ-OL-onM"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Real Time" selectedImage="square.and.arrow.down" catalog="system" id="zu8-fD-hNa"/>

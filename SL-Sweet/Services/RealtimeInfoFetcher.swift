@@ -9,7 +9,7 @@ import Foundation
 
 struct RealtimeInfoFetcher {
    
-    typealias RealtimeFetchCompletion = (Result<RealtimeResponse, Error>) -> ()
+    typealias RealtimeFetchCompletion = (Result<RealtimeInfo, Error>) -> ()
     
     
     func fetchRealtimeInfo(completion: @escaping RealtimeFetchCompletion) {
@@ -30,8 +30,8 @@ struct RealtimeInfoFetcher {
             }
             
             do {
-                let model = try JSONDecoder().decode(RealtimeResponse.self, from: data)
-                print("model: \(model)")
+                let model = try JSONDecoder().decode(RealtimeInfo.self, from: data)
+                print("model: \(model.ResponseData.Buses)")
                 completion(.success(model))
                 
             } catch {

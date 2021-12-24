@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
+   
     private var trafficTypes = [TrafficType]()
     
     
@@ -48,6 +49,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             switch result {
             case .success(let data):
                 self.trafficTypes = data.ResponseData.TrafficTypes
+                
                 //self.events = data
                 //print(self.events)
                 self.tableView.reloadData()

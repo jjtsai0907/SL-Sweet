@@ -20,6 +20,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="0LZ-V8-7oe"/>
                         <segue destination="pUj-0P-tkJ" kind="relationship" relationship="viewControllers" id="CO7-Mf-X7B"/>
+                        <segue destination="8Z0-51-tdr" kind="relationship" relationship="viewControllers" id="rpK-Kp-scV"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LSB-9t-DUo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -147,6 +148,43 @@
             </objects>
             <point key="canvasLocation" x="-554" y="266"/>
         </scene>
+        <!--Real Time-->
+        <scene sceneID="Gu2-QQ-Jgm">
+            <objects>
+                <viewController storyboardIdentifier="realtimeInfoVC" id="8Z0-51-tdr" customClass="RealtimeInfoVC" customModule="SL_Sweet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7pm-CU-Zc9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0ph-vW-MbX">
+                                <rect key="frame" x="188.5" y="410" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WVI-I4-VPa">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8iG-E9-Wcs"/>
+                        <color key="backgroundColor" red="1" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8iG-E9-Wcs" firstAttribute="bottom" secondItem="WVI-I4-VPa" secondAttribute="bottom" id="9E8-D9-heA"/>
+                            <constraint firstItem="WVI-I4-VPa" firstAttribute="leading" secondItem="8iG-E9-Wcs" secondAttribute="leading" id="ArU-D7-0KM"/>
+                            <constraint firstItem="8iG-E9-Wcs" firstAttribute="trailing" secondItem="WVI-I4-VPa" secondAttribute="trailing" id="mpg-de-Xvp"/>
+                            <constraint firstItem="8iG-E9-Wcs" firstAttribute="top" secondItem="WVI-I4-VPa" secondAttribute="top" constant="44" id="mvk-60-2hc"/>
+                            <constraint firstItem="0ph-vW-MbX" firstAttribute="centerY" secondItem="8iG-E9-Wcs" secondAttribute="centerY" id="wN1-bq-6vg"/>
+                            <constraint firstItem="0ph-vW-MbX" firstAttribute="centerX" secondItem="8iG-E9-Wcs" secondAttribute="centerX" id="znQ-OL-onM"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Real Time" selectedImage="square.and.arrow.down" catalog="system" id="zu8-fD-hNa"/>
+                    <connections>
+                        <outlet property="loadingSpinner" destination="0ph-vW-MbX" id="dC8-4U-f55"/>
+                        <outlet property="tableView" destination="WVI-I4-VPa" id="FxD-gm-KSc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0zX-f5-G4b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="285.50724637681162" y="279.91071428571428"/>
+        </scene>
         <!--Recognition DisplayVC-->
         <scene sceneID="Wfh-N6-Cfn">
             <objects>
@@ -168,6 +206,7 @@
         <image name="camera" width="256" height="256"/>
         <image name="camera.viewfinder" catalog="system" width="128" height="115"/>
         <image name="gallery" width="256" height="256"/>
+        <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <image name="waveform.path.ecg" catalog="system" width="128" height="124"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

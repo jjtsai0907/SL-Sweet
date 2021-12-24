@@ -24,6 +24,12 @@
 		B9FF590A2773096400012860 /* RecognitionDisplayVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF59092773096400012860 /* RecognitionDisplayVM.swift */; };
 		B9FF590C2773347500012860 /* TextRecognitionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF590B2773347500012860 /* TextRecognitionVM.swift */; };
 		B9FF591027735FD500012860 /* TrafficStatusVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF590F27735FD500012860 /* TrafficStatusVM.swift */; };
+		B9FF59132773B5E800012860 /* RealtimeInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF59122773B5E800012860 /* RealtimeInfoVC.swift */; };
+		B9FF59152773B60800012860 /* RealtimeInfoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF59142773B60800012860 /* RealtimeInfoVM.swift */; };
+		B9FF59172773B71500012860 /* RealtimeInfoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF59162773B71500012860 /* RealtimeInfoFetcher.swift */; };
+		B9FF59192773B8C400012860 /* RealtimeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF59182773B8C400012860 /* RealtimeInfo.swift */; };
+		B9FF591C277483CB00012860 /* RealtimeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF591A277483CB00012860 /* RealtimeTableCell.swift */; };
+		B9FF591D277483CB00012860 /* RealtimeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9FF591B277483CB00012860 /* RealtimeTableCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +52,12 @@
 		B9FF59092773096400012860 /* RecognitionDisplayVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognitionDisplayVM.swift; sourceTree = "<group>"; };
 		B9FF590B2773347500012860 /* TextRecognitionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionVM.swift; sourceTree = "<group>"; };
 		B9FF590F27735FD500012860 /* TrafficStatusVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficStatusVM.swift; sourceTree = "<group>"; };
+		B9FF59122773B5E800012860 /* RealtimeInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeInfoVC.swift; sourceTree = "<group>"; };
+		B9FF59142773B60800012860 /* RealtimeInfoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeInfoVM.swift; sourceTree = "<group>"; };
+		B9FF59162773B71500012860 /* RealtimeInfoFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeInfoFetcher.swift; sourceTree = "<group>"; };
+		B9FF59182773B8C400012860 /* RealtimeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeInfo.swift; sourceTree = "<group>"; };
+		B9FF591A277483CB00012860 /* RealtimeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeTableCell.swift; sourceTree = "<group>"; };
+		B9FF591B277483CB00012860 /* RealtimeTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RealtimeTableCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				B97F93AA275F421C00487203 /* Route.swift */,
+				B9FF59182773B8C400012860 /* RealtimeInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -72,6 +85,7 @@
 			children = (
 				B97F93AD27607D8900487203 /* TrafficStatusFetcher.swift */,
 				B97F93AF2763B9A400487203 /* ApiKey.swift */,
+				B9FF59162773B71500012860 /* RealtimeInfoFetcher.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -79,6 +93,7 @@
 		B97F93B1276A27F300487203 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B9FF591E277483DF00012860 /* RealtimeTableCell */,
 				B97F93B2276A284E00487203 /* TrafficCell.swift */,
 				B97F93B4276A49CB00487203 /* SectionHeader.swift */,
 				B97F93B6276A4A4100487203 /* SectionHeader.xib */,
@@ -122,6 +137,7 @@
 		B9FAD7352770A742007A9B98 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B9FF59112773B5C600012860 /* RealtimeInfo */,
 				B9FF59082773064300012860 /* RecognitionDisplay */,
 				B9FF59072773062A00012860 /* TextRecognition */,
 				B9FF59062773060B00012860 /* TrafficStatus */,
@@ -154,6 +170,24 @@
 				B9FF59092773096400012860 /* RecognitionDisplayVM.swift */,
 			);
 			path = RecognitionDisplay;
+			sourceTree = "<group>";
+		};
+		B9FF59112773B5C600012860 /* RealtimeInfo */ = {
+			isa = PBXGroup;
+			children = (
+				B9FF59122773B5E800012860 /* RealtimeInfoVC.swift */,
+				B9FF59142773B60800012860 /* RealtimeInfoVM.swift */,
+			);
+			path = RealtimeInfo;
+			sourceTree = "<group>";
+		};
+		B9FF591E277483DF00012860 /* RealtimeTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				B9FF591B277483CB00012860 /* RealtimeTableCell.xib */,
+				B9FF591A277483CB00012860 /* RealtimeTableCell.swift */,
+			);
+			path = RealtimeTableCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +249,7 @@
 			files = (
 				B97F93B7276A4A4100487203 /* SectionHeader.xib in Resources */,
 				B9A4E476275EA60B00F0BB49 /* LaunchScreen.storyboard in Resources */,
+				B9FF591D277483CB00012860 /* RealtimeTableCell.xib in Resources */,
 				B9A4E473275EA60B00F0BB49 /* Assets.xcassets in Resources */,
 				B9A4E471275EA60900F0BB49 /* Main.storyboard in Resources */,
 			);
@@ -231,13 +266,18 @@
 				B9FAD7392772739F007A9B98 /* RecognitionDisplayVC.swift in Sources */,
 				B9A4E46E275EA60900F0BB49 /* ViewController.swift in Sources */,
 				B97F93AB275F421C00487203 /* Route.swift in Sources */,
+				B9FF59172773B71500012860 /* RealtimeInfoFetcher.swift in Sources */,
+				B9FF591C277483CB00012860 /* RealtimeTableCell.swift in Sources */,
 				B9A4E46A275EA60900F0BB49 /* AppDelegate.swift in Sources */,
+				B9FF59152773B60800012860 /* RealtimeInfoVM.swift in Sources */,
 				B9FAD7372770A794007A9B98 /* TextRecognitionVC.swift in Sources */,
 				B97F93B5276A49CB00487203 /* SectionHeader.swift in Sources */,
 				B97F93B3276A284E00487203 /* TrafficCell.swift in Sources */,
 				B9FF590A2773096400012860 /* RecognitionDisplayVM.swift in Sources */,
+				B9FF59192773B8C400012860 /* RealtimeInfo.swift in Sources */,
 				B97F93B02763B9A400487203 /* ApiKey.swift in Sources */,
 				B9FF591027735FD500012860 /* TrafficStatusVM.swift in Sources */,
+				B9FF59132773B5E800012860 /* RealtimeInfoVC.swift in Sources */,
 				B9A4E46C275EA60900F0BB49 /* SceneDelegate.swift in Sources */,
 				B9FF590C2773347500012860 /* TextRecognitionVM.swift in Sources */,
 			);

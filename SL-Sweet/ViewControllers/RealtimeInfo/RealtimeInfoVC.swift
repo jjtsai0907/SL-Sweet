@@ -10,7 +10,7 @@ import UIKit
 class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSource {
     
     
-    
+    let searchController = UISearchController()
 
     private let realtimeInfoVM = RealtimeInfoVM()
     private let realtimeInfoFetcher = RealtimeInfoFetcher()
@@ -36,6 +36,7 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         
+        navigationItem.searchController = searchController
         
         loadData()
        

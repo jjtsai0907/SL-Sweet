@@ -124,6 +124,24 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         guard let input = searchBar.text else { return }
+        
+        realtimeInfoFetcher.searchRealtimeInfo(searchInput: input) { result in
+            switch result {
+            case .success(let data):
+                self.realtimeMetros = data.ResponseData.Metros
+              
+                DispatchQueue.main.async {
+                    
+                    self.realtimeInfoVM.stopLoadingSpinner(loadingSpinner: self.loadingSpinner)
+                    self.loadingSpinner.isHidden = true
+                    self.tableView.isHidden = false
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
         print("Search \(input)...")
     }
     

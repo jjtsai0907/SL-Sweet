@@ -7,7 +7,9 @@
 
 import UIKit
 
-class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSource {
+class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
+   
+    
     
     
     let searchController = UISearchController()
@@ -37,7 +39,8 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
         tableView.dataSource = self
         
         navigationItem.searchController = searchController
-        
+        searchController.searchResultsUpdater = self
+        navigationItem.searchController?.searchBar.delegate = self
         loadData()
        
     }
@@ -107,5 +110,21 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
-
+    
+    
+    // MARK: - UISearchController
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let input = searchController.searchBar.text else { return }
+        print(input)
+    }
+    
+    
+    // MARK: - UISearchBarDelegate
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        guard let input = searchBar.text else { return }
+        print("Search \(input)...")
+    }
+    
 }

@@ -22,9 +22,9 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
     
     
     private var nib = UINib(nibName: "RealtimeTableCell", bundle: nil)
-    private var realtimeMetros = [Metro]()
-    private var realtimeBuses = [Bus]()
     
+    
+    private var realtimeInfo = RealtimeInfo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,8 +56,8 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
             switch result {
             case .success(let data):
                 
-                self.realtimeMetros = data.ResponseData.Metros
-              
+          
+                self.realtimeInfo = data
                 DispatchQueue.main.async {
                     
                     self.realtimeInfoVM.stopLoadingSpinner(loadingSpinner: self.loadingSpinner)
@@ -77,20 +77,35 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return realtimeMetros.count
+        switch (section) {
+        case 0: return realtimeInfo.ResponseData.Metros.count
+        case 1: return realtimeInfo.ResponseData.Buses.count
+        default: return 0
+        }
     }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RealtimeTableCell", for: indexPath) as! RealtimeTableCell
         
-        cell.myLabel.text = "\(realtimeMetros[indexPath.section].DisplayTime) Mot: \(realtimeMetros[indexPath.section].Destination)"
+        if indexPath.section == 0 {
+            let metro = realtimeInfo.ResponseData.Metros[indexPath.row]
+            cell.myLabel.text = "\(metro.DisplayTime) \(metro.Destination)"
+        } else if indexPath.section == 1 {
+            let bus = realtimeInfo.ResponseData.Buses[indexPath.row]
+            cell.myLabel.text = "\(bus.DisplayTime) Mot: \(bus.LineNumber)"
+        }
+        
+        //cell.myLabel.text = "\(realtimeMetros[indexPath.section].DisplayTime) Mot: \(realtimeMetros[indexPath.section].Destination)"
+        
+        //cell.myLabel.text = "\(realtimeInfo)"
+        
         return cell
 
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return realtimeMetros.count
+        return 2
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -98,7 +113,7 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Realtime Table"
+        return section == 0 ? "Metro" : "Bus"
         // TO DO:
     }
     
@@ -131,7 +146,8 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
             
             switch result {
             case .success(let data):
-                self.realtimeMetros = data.ResponseData.Metros
+                
+                self.realtimeInfo = data
               
                 DispatchQueue.main.async {
                     

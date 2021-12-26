@@ -84,7 +84,7 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RealtimeTableCell", for: indexPath) as! RealtimeTableCell
         
-        cell.myLabel.text = "\(realtimeMetros[indexPath.section])"
+        cell.myLabel.text = "\(realtimeMetros[indexPath.section].DisplayTime) Mot: \(realtimeMetros[indexPath.section].Destination)"
         return cell
 
     }
@@ -125,7 +125,10 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
         
         guard let input = searchBar.text else { return }
         
-        realtimeInfoFetcher.searchRealtimeInfo(searchInput: input) { result in
+        realtimeInfoFetcher.searchRealtimeInfo(searchInput: input) { [weak self] result in
+            
+            guard let self = self else { return }
+            
             switch result {
             case .success(let data):
                 self.realtimeMetros = data.ResponseData.Metros
@@ -136,6 +139,7 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
                     self.loadingSpinner.isHidden = true
                     self.tableView.isHidden = false
                     self.tableView.reloadData()
+                    
                 }
             case .failure(let error):
                 print(error)
@@ -143,6 +147,7 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
         }
         
         print("Search \(input)...")
+        self.navigationItem.searchController?.dismiss(animated: true, completion: nil)
     }
     
 }

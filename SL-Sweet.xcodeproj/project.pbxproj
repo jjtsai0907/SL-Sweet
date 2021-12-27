@@ -19,6 +19,7 @@
 		B9A4E471275EA60900F0BB49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9A4E46F275EA60900F0BB49 /* Main.storyboard */; };
 		B9A4E473275EA60B00F0BB49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9A4E472275EA60B00F0BB49 /* Assets.xcassets */; };
 		B9A4E476275EA60B00F0BB49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9A4E474275EA60B00F0BB49 /* LaunchScreen.storyboard */; };
+		B9E952BC277997140054848F /* RealtimeResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E952BB277997140054848F /* RealtimeResultVC.swift */; };
 		B9FAD7372770A794007A9B98 /* TextRecognitionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FAD7362770A794007A9B98 /* TextRecognitionVC.swift */; };
 		B9FAD7392772739F007A9B98 /* RecognitionDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FAD7382772739F007A9B98 /* RecognitionDisplayVC.swift */; };
 		B9FF590A2773096400012860 /* RecognitionDisplayVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF59092773096400012860 /* RecognitionDisplayVM.swift */; };
@@ -47,6 +48,7 @@
 		B9A4E472275EA60B00F0BB49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9A4E475275EA60B00F0BB49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9A4E477275EA60B00F0BB49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9E952BB277997140054848F /* RealtimeResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeResultVC.swift; sourceTree = "<group>"; };
 		B9FAD7362770A794007A9B98 /* TextRecognitionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionVC.swift; sourceTree = "<group>"; };
 		B9FAD7382772739F007A9B98 /* RecognitionDisplayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognitionDisplayVC.swift; sourceTree = "<group>"; };
 		B9FF59092773096400012860 /* RecognitionDisplayVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognitionDisplayVM.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			children = (
 				B9FF59122773B5E800012860 /* RealtimeInfoVC.swift */,
 				B9FF59142773B60800012860 /* RealtimeInfoVM.swift */,
+				B9E952BB277997140054848F /* RealtimeResultVC.swift */,
 			);
 			path = RealtimeInfo;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				B97F93AB275F421C00487203 /* Route.swift in Sources */,
 				B9FF59172773B71500012860 /* RealtimeInfoFetcher.swift in Sources */,
 				B9FF591C277483CB00012860 /* RealtimeTableCell.swift in Sources */,
+				B9E952BC277997140054848F /* RealtimeResultVC.swift in Sources */,
 				B9A4E46A275EA60900F0BB49 /* AppDelegate.swift in Sources */,
 				B9FF59152773B60800012860 /* RealtimeInfoVM.swift in Sources */,
 				B9FAD7372770A794007A9B98 /* TextRecognitionVC.swift in Sources */,

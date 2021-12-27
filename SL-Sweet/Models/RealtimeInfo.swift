@@ -9,7 +9,8 @@ import Foundation
 
 
 struct RealtimeInfo: Decodable {
-    var ResponseData: RealtimeResponse
+    var ResponseData: RealtimeResponse = RealtimeResponse(Metros: [Metro](), Buses: [Bus]())
+    
 }
 
 struct RealtimeResponse: Decodable {
@@ -31,3 +32,5 @@ struct Bus: Decodable {
     var DisplayTime: String
     var TransportMode: String
 }
+
+

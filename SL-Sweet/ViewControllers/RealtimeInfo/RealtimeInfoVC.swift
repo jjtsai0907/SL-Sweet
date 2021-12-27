@@ -7,12 +7,14 @@
 
 import UIKit
 
+
+
 class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
    
+    let orangeController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RealtimeResultVC") as? RealtimeResultVC
     
     
-    
-    let searchController = UISearchController()
+    let searchController = UISearchController(searchResultsController: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RealtimeResultVC") as? RealtimeResultVC)
 
     private let realtimeInfoVM = RealtimeInfoVM()
     private let realtimeInfoFetcher = RealtimeInfoFetcher()
@@ -163,7 +165,7 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
         }
         
         print("Search \(input)...")
-        self.navigationItem.searchController?.dismiss(animated: true, completion: nil)
+       // self.navigationItem.searchController?.dismiss(animated: true, completion: nil)
     }
     
 }

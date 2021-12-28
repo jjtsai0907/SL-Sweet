@@ -200,9 +200,34 @@
                     <view key="view" contentMode="scaleToFill" id="Peo-xw-Qyg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PyV-wR-f0k">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="arY-p3-9Jg">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="arY-p3-9Jg" id="jxg-aS-ffO">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="kVd-x5-NVB"/>
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <constraints>
+                            <constraint firstItem="PyV-wR-f0k" firstAttribute="leading" secondItem="kVd-x5-NVB" secondAttribute="leading" id="Rbp-BH-ohQ"/>
+                            <constraint firstItem="PyV-wR-f0k" firstAttribute="top" secondItem="kVd-x5-NVB" secondAttribute="top" id="bqS-Qq-y0U"/>
+                            <constraint firstItem="kVd-x5-NVB" firstAttribute="trailing" secondItem="PyV-wR-f0k" secondAttribute="trailing" id="gob-J3-4ui"/>
+                            <constraint firstItem="kVd-x5-NVB" firstAttribute="bottom" secondItem="PyV-wR-f0k" secondAttribute="bottom" id="pwb-jm-bNf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="PyV-wR-f0k" id="AlH-gf-yYv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hHo-8U-OOf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,10 +11,14 @@ import UIKit
 
 class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
    
-    let orangeController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RealtimeResultVC") as? RealtimeResultVC
     
+    let resultsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RealtimeResultVC") as? RealtimeResultVC
     
-    let searchController = UISearchController(searchResultsController: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RealtimeResultVC") as? RealtimeResultVC)
+    lazy var searchController: UISearchController = {
+        let controller = UISearchController(searchResultsController: resultsController)
+        return controller
+    }()
+    
 
     private let realtimeInfoVM = RealtimeInfoVM()
     private let realtimeInfoFetcher = RealtimeInfoFetcher()
@@ -42,6 +46,7 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
         
         navigationItem.searchController = searchController
         searchController.searchResultsUpdater = self
+        searchController.delegate = self
         navigationItem.searchController?.searchBar.delegate = self
         loadData()
        
@@ -127,14 +132,21 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
-    
+    let emptyRealtimeInfo = RealtimeInfo()
     
     // MARK: - UISearchController
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let input = searchController.searchBar.text else { return }
+        resultsController?.realtimeInfo = emptyRealtimeInfo
         print(input)
     }
+    
+    func didDismissSearchController(_ searchController: UISearchController) {
+        resultsController?.realtimeInfo = emptyRealtimeInfo
+        print("is canceled")
+    }
+    
     
     
     // MARK: - UISearchBarDelegate
@@ -149,10 +161,11 @@ class RealtimeInfoVC: UIViewController, UITableViewDelegate ,UITableViewDataSour
             switch result {
             case .success(let data):
                 
-                self.realtimeInfo = data
-              
+                
                 DispatchQueue.main.async {
-                    
+                    self.realtimeInfo = data
+                    self.resultsController?.realtimeInfo = data
+
                     self.realtimeInfoVM.stopLoadingSpinner(loadingSpinner: self.loadingSpinner)
                     self.loadingSpinner.isHidden = true
                     self.tableView.isHidden = false

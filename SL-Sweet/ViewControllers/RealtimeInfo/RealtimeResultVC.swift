@@ -24,6 +24,8 @@ class RealtimeResultVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     @IBOutlet weak var tableView: UITableView!
     
+    private var nib = UINib(nibName: "RealtimeTableCell", bundle: nil)
+    
     var realtimeInfo = RealtimeInfo() {
         didSet {
             tableView.reloadData()
@@ -34,6 +36,7 @@ class RealtimeResultVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.register(nib, forCellReuseIdentifier: "RealtimeTableCell")
     }
     
     
@@ -42,6 +45,18 @@ class RealtimeResultVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let trafficType = RealtimeTrafficType(rawValue: section){
+            switch trafficType {
+            case .metro:
+                return "Metro"
+            case .bus:
+                return "Bus"
+            }
+        }
+        return "Default"
     }
     
     
@@ -59,8 +74,8 @@ class RealtimeResultVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // 1. get the cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        // 1. get the cell. To use custom cell: (1) create a nib (2) register it in viewDidLoad (3) use it below
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RealtimeTableCell", for: indexPath) as! RealtimeTableCell
         // 2. determine how many sections, depending on your data type. There are two ways to do this: to switch the enum or the section. I personally think switching enum is cooler.
         
 
@@ -69,10 +84,10 @@ class RealtimeResultVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             switch trafficType {
             case .metro:
                 let metro = realtimeInfo.ResponseData.Metros[indexPath.row]
-                cell.textLabel?.text = "\(metro.DisplayTime) \(metro.Destination)"
+                cell.textLabel?.text = "Metro \(metro.DisplayTime) \(metro.Destination)"
             case .bus:
                 let bus = realtimeInfo.ResponseData.Buses[indexPath.row]
-                cell.textLabel?.text = "\(bus.DisplayTime) Mot: \(bus.LineNumber)"
+                cell.textLabel?.text = "Bus \(bus.DisplayTime) Mot: \(bus.LineNumber)"
             }
         }
         

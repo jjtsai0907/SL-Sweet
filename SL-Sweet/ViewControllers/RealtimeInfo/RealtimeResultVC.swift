@@ -21,7 +21,6 @@ private enum RealtimeTrafficType: Int {
 class RealtimeResultVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    
     @IBOutlet weak var tableView: UITableView!
     
     private var nib = UINib(nibName: "RealtimeTableCell", bundle: nil)
@@ -31,12 +30,18 @@ class RealtimeResultVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             tableView.reloadData()
         }
     }
-
+    
+    let trafficStatusVM = TrafficStatusVM()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(nib, forCellReuseIdentifier: "RealtimeTableCell")
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.tableFooterView = UIView()
+        tableView.backgroundColor =  #colorLiteral(red: 1, green: 0.6862745098, blue: 0.6862745098, alpha: 1)
     }
     
     
@@ -84,10 +89,10 @@ class RealtimeResultVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             switch trafficType {
             case .metro:
                 let metro = realtimeInfo.ResponseData.Metros[indexPath.row]
-                cell.textLabel?.text = "Metro \(metro.DisplayTime) \(metro.Destination)"
+                cell.myLabel?.text = "\(metro.DisplayTime)     Mot: \(metro.Destination)".trimmingCharacters(in: .whitespacesAndNewlines)
             case .bus:
                 let bus = realtimeInfo.ResponseData.Buses[indexPath.row]
-                cell.textLabel?.text = "Bus \(bus.DisplayTime) Mot: \(bus.LineNumber)"
+                cell.myLabel?.text = "\(bus.DisplayTime)      Mot: \(bus.LineNumber)".trimmingCharacters(in: .whitespacesAndNewlines)
             }
         }
         
@@ -98,10 +103,49 @@ class RealtimeResultVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         default:
         }*/
         
+        
         return cell
         
     }
-
-
+    
+    
+    // MARK: - UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Pressed!")
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 70
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
+        
+        if let trafficType = RealtimeTrafficType(rawValue: section) {
+            switch trafficType {
+            case .metro:
+                setHeader(category: TrafficCategory.metro, header: header)
+            case .bus:
+                setHeader(category: TrafficCategory.bus, header: header)
+            }
+        }
+        
+        return header
+    }
+    
+    
+    private func setHeader(category: TrafficCategory, header: UIView) {
+        
+        let imageView = UIImageView(image: trafficStatusVM.imageIcon(forCategory: category))
+        header.addSubview(imageView)
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame = CGRect(x: 5, y: 20, width: header.frame.size.height - 10, height: header.frame.size.height - 10)
+        let label = UILabel(frame: CGRect(x: 20 + imageView.frame.size.width, y: 20, width: header.frame.size.width - 15 - imageView.frame.size.width, height: header.frame.size.height - 10))
+        header.addSubview(label)
+        label.text = category.rawValue.uppercased()
+    }
 
 }

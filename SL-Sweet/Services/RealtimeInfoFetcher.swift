@@ -47,7 +47,7 @@ struct RealtimeInfoFetcher {
     
     
     func searchRealtimeInfo(searchInput: String, complition: @escaping RealtimeFetchCompletion) {
-        // Slussen: 9192; Skuru Skola: 4027; Odenplan: 9117
+        // Slussen: 9192; Skuru Skola: 4027; Odenplan: 9117; Nacka Strand: 4031
         guard let url = URL(string: "https://api.sl.se/api2/realtimedeparturesv4.json?key=\(REALTIME_APIKEY)&siteid=\(searchInput)&timewindow=5") else { return }
         
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
@@ -67,14 +67,12 @@ struct RealtimeInfoFetcher {
             
             do {
                 let model = try JSONDecoder().decode(RealtimeInfo.self, from: data)
-                print("searchRealtimeInfo(): \(model.ResponseData.Metros) \(model.ResponseData.Buses)")
+                print("searchRealtimeInfo(): \(model.ResponseData) ")
                 complition(.success(model))
             } catch {
                 print("searchRealtimeInfo(): failed \(error)")
                 complition(.failure(error))
             }
-            
-            
             
         }
         

@@ -9,7 +9,7 @@ import Foundation
 
 
 struct RealtimeInfo: Decodable {
-    var ResponseData: RealtimeResponse = RealtimeResponse(Metros: [Metro](), Buses: [Bus](), Trains: [Train](), Ships: [Ship]())
+    var ResponseData: RealtimeResponse = RealtimeResponse(Metros: [Metro](), Buses: [Bus](), Trains: [Train](), Trams: [Tram](), Ships: [Ship]())
     
 }
 
@@ -17,38 +17,47 @@ struct RealtimeResponse: Decodable {
     var Metros: [Metro]
     var Buses: [Bus]
     var Trains: [Train]
+    var Trams: [Tram]
     var Ships: [Ship]
 }
 
 
 struct Metro: Decodable {
     var GroupOfLine: String
-    var DisplayTime: String
     var TransportMode: String
+    var LineNumber: String
     var Destination: String
+    var DisplayTime: String
 }
 
 
 struct Bus: Decodable {
-    var LineNumber: String
-    var DisplayTime: String
-    var TransportMode: String
-}
-
-struct Train: Decodable {
-    
-}
-
-struct Tram: Decodable {
-    
-}
-
-struct Ship: Decodable {
     var TransportMode: String
     var LineNumber: String
     var Destination: String
-    var GroupOfLine: String
-    var StopAreaName: String
     var DisplayTime: String
-    var JourneyNumber: Int
+}
+
+struct Train: Decodable {
+    var GroupOfLine: String
+    var TransportMode: String
+    var LineNumber: String
+    var Destination: String
+    var DisplayTime: String
+}
+
+struct Tram: Decodable {
+    var GroupOfLine: String
+    var TransportMode: String
+    var LineNumber: String
+    var Destination: String
+    var DisplayTime: String
+}
+
+struct Ship: Decodable {
+    var GroupOfLine: String
+    var TransportMode: String
+    var LineNumber: String
+    var Destination: String
+    var DisplayTime: String
 }

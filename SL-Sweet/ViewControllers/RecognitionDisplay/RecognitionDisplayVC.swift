@@ -12,7 +12,13 @@ import Combine
 class RecognitionDisplayVC: UIViewController {
 
     
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    
     private let recognitionDisplayVM = RecognitionDisplayVM()
+    
+    
     
     /*lazy var recognitionDisplayVM: RecognitionDisplayVM = {
                 let viewModel = RecognitionDisplayVM()
@@ -40,9 +46,9 @@ class RecognitionDisplayVC: UIViewController {
         
         // Do any additional setup after loading the view.
         bindViewModel()
-        /*recognitionDisplayVM.showCamera {
+        recognitionDisplayVM.showCamera {
             self.present(recognitionDisplayVM.picker, animated: true, completion: nil)
-        }*/
+        }
     }
     
     /*override func viewDidLayoutSubviews() {
@@ -64,14 +70,16 @@ class RecognitionDisplayVC: UIViewController {
     private func bindViewModel() {
         
         recognitionDisplayVM.$resultText.sink { [weak self] value in
-           // self?.label.text = value
+            self?.label.text = value
         }.store(in: &cancellables)
      
         recognitionDisplayVM.$imageView.sink { [weak self] image in
-           // self?.imageView.image = image
+            self?.imageView.image = image
         }.store(in: &cancellables)
         
         
     }
-
+    @IBAction func startReadText(_ sender: Any) {
+    }
+    
 }

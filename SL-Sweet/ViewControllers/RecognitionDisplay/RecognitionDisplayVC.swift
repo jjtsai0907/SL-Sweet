@@ -19,7 +19,7 @@ class RecognitionDisplayVC: UIViewController {
                 return viewModel
             }()*/
     
-    private let label: UILabel = {
+   /* private let label: UILabel = {
        let label = UILabel()
         label.numberOfLines = 0
         label.text = "Start Text"
@@ -31,20 +31,21 @@ class RecognitionDisplayVC: UIViewController {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
-    }()
+    }() */
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(label)
-        view.addSubview(imageView)
+        //view.addSubview(label)
+        //view.addSubview(imageView)
+        
         // Do any additional setup after loading the view.
         bindViewModel()
-        recognitionDisplayVM.showCamera { 
+        /*recognitionDisplayVM.showCamera {
             self.present(recognitionDisplayVM.picker, animated: true, completion: nil)
-        }
+        }*/
     }
     
-    override func viewDidLayoutSubviews() {
+    /*override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         imageView.frame = CGRect(x: 20,
                                  y: view.frame.size.height / 4 + 40,
@@ -55,7 +56,7 @@ class RecognitionDisplayVC: UIViewController {
                              y: view.frame.size.height / 2 + 100,
                              width: view.frame.size.width - 40,
                              height: 200)
-    }
+    }*/
     
     
     private var cancellables: Set<AnyCancellable> = []
@@ -63,11 +64,11 @@ class RecognitionDisplayVC: UIViewController {
     private func bindViewModel() {
         
         recognitionDisplayVM.$resultText.sink { [weak self] value in
-            self?.label.text = value
+           // self?.label.text = value
         }.store(in: &cancellables)
      
         recognitionDisplayVM.$imageView.sink { [weak self] image in
-            self?.imageView.image = image
+           // self?.imageView.image = image
         }.store(in: &cancellables)
         
         

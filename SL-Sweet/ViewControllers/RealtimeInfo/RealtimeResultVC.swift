@@ -14,6 +14,9 @@ private enum RealtimeTrafficType: Int {
     // When you define the first one, the followings will be auto-generated with + 1
     case metro = 0
     case bus
+    case train
+    case tram
+    case ship
 }
 
 
@@ -49,10 +52,10 @@ class RealtimeResultVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     // MARK: UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 5
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+   /* func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if let trafficType = RealtimeTrafficType(rawValue: section){
             switch trafficType {
             case .metro:
@@ -62,7 +65,7 @@ class RealtimeResultVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             }
         }
         return "Default"
-    }
+    } */
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,6 +75,12 @@ class RealtimeResultVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 return realtimeInfo.ResponseData.Metros.count
             case .bus:
                 return realtimeInfo.ResponseData.Buses.count
+            case .train:
+                return realtimeInfo.ResponseData.Trains.count
+            case .tram:
+                return realtimeInfo.ResponseData.Trams.count
+            case .ship:
+                return realtimeInfo.ResponseData.Ships.count
             }
         }
         return 0
@@ -93,7 +102,17 @@ class RealtimeResultVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             case .bus:
                 let bus = realtimeInfo.ResponseData.Buses[indexPath.row]
                 cell.myLabel?.text = "\(bus.DisplayTime)      Mot: \(bus.LineNumber)".trimmingCharacters(in: .whitespacesAndNewlines)
+            case .train:
+                let train = realtimeInfo.ResponseData.Trains[indexPath.row]
+                cell.myLabel?.text = "\(train.DisplayTime)   Mot: \(train.Destination)"
+            case .tram:
+                let tram = realtimeInfo.ResponseData.Trams[indexPath.row]
+                cell.myLabel?.text = "\(tram.DisplayTime)   Mot: \(tram.Destination)"
+            case .ship:
+                let ship = realtimeInfo.ResponseData.Ships[indexPath.row]
+                cell.myLabel?.text = "\(ship.DisplayTime)   Mot: \(ship.Destination)"
             }
+            
         }
         
         /* Method 2 - switching section
@@ -127,9 +146,15 @@ class RealtimeResultVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         if let trafficType = RealtimeTrafficType(rawValue: section) {
             switch trafficType {
             case .metro:
-                setHeader(category: TrafficCategory.metro, header: header)
+                setHeader(category: TrafficCategory.metro, header: header, title: "Metro")
             case .bus:
-                setHeader(category: TrafficCategory.bus, header: header)
+                setHeader(category: TrafficCategory.bus, header: header, title: "Bus")
+            case .train:
+                setHeader(category: TrafficCategory.train, header: header, title: "Train")
+            case .tram:
+                setHeader(category: TrafficCategory.tram, header: header, title: "Tram")
+            case .ship:
+                setHeader(category: TrafficCategory.ferry, header: header, title: "Ferry")
             }
         }
         
@@ -137,7 +162,7 @@ class RealtimeResultVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     
-    private func setHeader(category: TrafficCategory, header: UIView) {
+    private func setHeader(category: TrafficCategory, header: UIView, title: String) {
         
         let imageView = UIImageView(image: trafficStatusVM.imageIcon(forCategory: category))
         header.addSubview(imageView)
@@ -145,7 +170,10 @@ class RealtimeResultVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         imageView.frame = CGRect(x: 5, y: 20, width: header.frame.size.height - 10, height: header.frame.size.height - 10)
         let label = UILabel(frame: CGRect(x: 20 + imageView.frame.size.width, y: 20, width: header.frame.size.width - 15 - imageView.frame.size.width, height: header.frame.size.height - 10))
         header.addSubview(label)
-        label.text = category.rawValue.uppercased()
+        label.text = title
+        
     }
 
 }
+
+

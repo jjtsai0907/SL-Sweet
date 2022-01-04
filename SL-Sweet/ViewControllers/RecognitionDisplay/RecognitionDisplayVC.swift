@@ -80,6 +80,13 @@ class RecognitionDisplayVC: UIViewController {
         
     }
     @IBAction func startReadText(_ sender: Any) {
+        
+        if let text = self.label.text {
+            SpeechService.shared.startSpeech(text: text)
+        } else {
+            print("no text")
+        }
+        
     }
     
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B96D198D2784F03200DB5F99 /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D198C2784F03200DB5F99 /* SpeechService.swift */; };
 		B97F93AB275F421C00487203 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F93AA275F421C00487203 /* Route.swift */; };
 		B97F93AE27607D8900487203 /* TrafficStatusFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F93AD27607D8900487203 /* TrafficStatusFetcher.swift */; };
 		B97F93B02763B9A400487203 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F93AF2763B9A400487203 /* ApiKey.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B96D198C2784F03200DB5F99 /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
 		B97F93AA275F421C00487203 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		B97F93AD27607D8900487203 /* TrafficStatusFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficStatusFetcher.swift; sourceTree = "<group>"; };
 		B97F93AF2763B9A400487203 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				B97F93AD27607D8900487203 /* TrafficStatusFetcher.swift */,
 				B97F93AF2763B9A400487203 /* ApiKey.swift */,
 				B9FF59162773B71500012860 /* RealtimeInfoFetcher.swift */,
+				B96D198C2784F03200DB5F99 /* SpeechService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				B9FF59172773B71500012860 /* RealtimeInfoFetcher.swift in Sources */,
 				B9FF591C277483CB00012860 /* RealtimeTableCell.swift in Sources */,
 				B9E952BC277997140054848F /* RealtimeResultVC.swift in Sources */,
+				B96D198D2784F03200DB5F99 /* SpeechService.swift in Sources */,
 				B9A4E46A275EA60900F0BB49 /* AppDelegate.swift in Sources */,
 				B9FF59152773B60800012860 /* RealtimeInfoVM.swift in Sources */,
 				B9FAD7372770A794007A9B98 /* TextRecognitionVC.swift in Sources */,

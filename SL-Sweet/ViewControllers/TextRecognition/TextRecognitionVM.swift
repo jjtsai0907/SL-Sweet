@@ -11,7 +11,7 @@ import Combine
 
 class TextRecognitionVM: ObservableObject {
     
-    @Published var recognitionDisplayVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "recognitionDisplayVC")
+    @Published var recognitionDisplayVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "RecognitionDisplayVC")
    
     
    

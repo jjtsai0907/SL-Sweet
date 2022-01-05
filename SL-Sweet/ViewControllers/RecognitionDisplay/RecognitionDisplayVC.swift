@@ -17,7 +17,7 @@ class RecognitionDisplayVC: UIViewController {
     
     
     private let recognitionDisplayVM = RecognitionDisplayVM()
-    
+    private let speechService = SpeechService()
     
     
     /*lazy var recognitionDisplayVM: RecognitionDisplayVM = {
@@ -79,7 +79,7 @@ class RecognitionDisplayVC: UIViewController {
         
         
     }
-    @IBAction func startReadText(_ sender: Any) {
+    @IBAction func startReadingText(_ sender: Any) {
         
         if let text = self.label.text {
             SpeechService.shared.startSpeech(text: text)
@@ -88,5 +88,10 @@ class RecognitionDisplayVC: UIViewController {
         }
         
     }
+    
+    @IBAction func stopReadingText(_ sender: Any) {
+        SpeechService.shared.stopSpeech()
+    }
+    
     
 }

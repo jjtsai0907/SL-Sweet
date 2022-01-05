@@ -246,6 +246,9 @@
                                         <color key="backgroundColor" red="1" green="0.68627450980000004" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Stop"/>
+                                        <connections>
+                                            <action selector="stopReadingText:" destination="jPa-dE-nW0" eventType="touchUpInside" id="KYx-Nd-IQh"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xn-yj-J26">
                                         <rect key="frame" x="267" y="0.0" width="127" height="48"/>
@@ -253,7 +256,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Read Text"/>
                                         <connections>
-                                            <action selector="startReadText:" destination="jPa-dE-nW0" eventType="touchUpInside" id="ZDV-zw-OB1"/>
+                                            <action selector="startReadingText:" destination="jPa-dE-nW0" eventType="touchUpInside" id="ZDV-zw-OB1"/>
                                         </connections>
                                     </button>
                                 </subviews>

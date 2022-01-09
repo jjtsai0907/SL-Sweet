@@ -6,13 +6,33 @@
 //
 
 import UIKit
+import SpriteKit
 
 class GameVC: UIViewController {
 
+    @IBOutlet weak var sceneView: SKView!
+    
+    var scene: RunningScene?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
-
+    override func viewDidAppear(_ animated: Bool) {
+        self.scene = RunningScene(size: CGSize(width: self.sceneView.frame.size.width, height: self.sceneView.frame.size.height))
+        self.sceneView.presentScene(scene)
+    }
+    
+    
+    @IBAction func startRunning(_ sender: Any) {
+        print("runing!")
+        
+        if let scene = self.scene {
+            scene.runPig()
+        }
+    }
+    
+    
 }

@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		B928FF7A278A387E0086AB24 /* GameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B928FF79278A387E0086AB24 /* GameVM.swift */; };
 		B928FF7C278A389C0086AB24 /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B928FF7B278A389C0086AB24 /* GameVC.swift */; };
-		B928FF80278AF66C0086AB24 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B928FF7E278AF63E0086AB24 /* SpriteKit.framework */; };
+		B928FF85278B2ECD0086AB24 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B928FF7E278AF63E0086AB24 /* SpriteKit.framework */; };
+		B928FF89278B324E0086AB24 /* RunningScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B928FF88278B324E0086AB24 /* RunningScene.swift */; };
+		B928FF8D278B47FB0086AB24 /* pig.atlas in Resources */ = {isa = PBXBuildFile; fileRef = B928FF8C278B47FB0086AB24 /* pig.atlas */; };
 		B96D198D2784F03200DB5F99 /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D198C2784F03200DB5F99 /* SpeechService.swift */; };
 		B97F93AB275F421C00487203 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F93AA275F421C00487203 /* Route.swift */; };
 		B97F93AE27607D8900487203 /* TrafficStatusFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F93AD27607D8900487203 /* TrafficStatusFetcher.swift */; };
@@ -41,6 +43,8 @@
 		B928FF79278A387E0086AB24 /* GameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVM.swift; sourceTree = "<group>"; };
 		B928FF7B278A389C0086AB24 /* GameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
 		B928FF7E278AF63E0086AB24 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		B928FF88278B324E0086AB24 /* RunningScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningScene.swift; sourceTree = "<group>"; };
+		B928FF8C278B47FB0086AB24 /* pig.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = pig.atlas; sourceTree = "<group>"; };
 		B96D198C2784F03200DB5F99 /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
 		B97F93AA275F421C00487203 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		B97F93AD27607D8900487203 /* TrafficStatusFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficStatusFetcher.swift; sourceTree = "<group>"; };
@@ -75,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B928FF80278AF66C0086AB24 /* SpriteKit.framework in Frameworks */,
+				B928FF85278B2ECD0086AB24 /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +91,7 @@
 			children = (
 				B928FF79278A387E0086AB24 /* GameVM.swift */,
 				B928FF7B278A389C0086AB24 /* GameVC.swift */,
+				B928FF88278B324E0086AB24 /* RunningScene.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 		B9A4E468275EA60900F0BB49 /* SL-Sweet */ = {
 			isa = PBXGroup;
 			children = (
+				B928FF8C278B47FB0086AB24 /* pig.atlas */,
 				B9FAD7352770A742007A9B98 /* ViewControllers */,
 				B97F93B1276A27F300487203 /* Views */,
 				B97F93AC27607CCA00487203 /* Services */,
@@ -281,6 +287,7 @@
 			files = (
 				B97F93B7276A4A4100487203 /* SectionHeader.xib in Resources */,
 				B9A4E476275EA60B00F0BB49 /* LaunchScreen.storyboard in Resources */,
+				B928FF8D278B47FB0086AB24 /* pig.atlas in Resources */,
 				B9FF591D277483CB00012860 /* RealtimeTableCell.xib in Resources */,
 				B9A4E473275EA60B00F0BB49 /* Assets.xcassets in Resources */,
 				B9A4E471275EA60900F0BB49 /* Main.storyboard in Resources */,
@@ -306,6 +313,7 @@
 				B9A4E46A275EA60900F0BB49 /* AppDelegate.swift in Sources */,
 				B9FF59152773B60800012860 /* RealtimeInfoVM.swift in Sources */,
 				B9FAD7372770A794007A9B98 /* TextRecognitionVC.swift in Sources */,
+				B928FF89278B324E0086AB24 /* RunningScene.swift in Sources */,
 				B97F93B5276A49CB00487203 /* SectionHeader.swift in Sources */,
 				B97F93B3276A284E00487203 /* TrafficCell.swift in Sources */,
 				B9FF590A2773096400012860 /* RecognitionDisplayVM.swift in Sources */,

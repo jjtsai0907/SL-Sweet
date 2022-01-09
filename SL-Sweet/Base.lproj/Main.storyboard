@@ -21,6 +21,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="0LZ-V8-7oe"/>
                         <segue destination="pUj-0P-tkJ" kind="relationship" relationship="viewControllers" id="CO7-Mf-X7B"/>
                         <segue destination="hgz-UK-cIy" kind="relationship" relationship="viewControllers" id="Jrl-ko-c83"/>
+                        <segue destination="UBl-Br-kLP" kind="relationship" relationship="viewControllers" id="E8v-c1-JLi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LSB-9t-DUo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -172,6 +173,22 @@
             </objects>
             <point key="canvasLocation" x="1125" y="267"/>
         </scene>
+        <!--Game-->
+        <scene sceneID="Ptm-id-8dU">
+            <objects>
+                <viewController id="UBl-Br-kLP" customClass="GameVC" customModule="SL_Sweet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ehq-sM-zby">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="gdj-7a-Ip1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Game" id="yvh-xC-TiK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uPt-es-fSx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2048" y="273"/>
+        </scene>
         <!--Realtime ResultVC-->
         <scene sceneID="HBL-YY-elU">
             <objects>
@@ -180,7 +197,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PyV-wR-f0k">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="PyV-wR-f0k">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
@@ -200,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hHo-8U-OOf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2422" y="287"/>
+            <point key="canvasLocation" x="1125" y="928"/>
         </scene>
         <!--Item-->
         <scene sceneID="O4r-Uj-39o">

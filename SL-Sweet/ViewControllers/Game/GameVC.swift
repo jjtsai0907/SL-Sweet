@@ -11,9 +11,11 @@ import SpriteKit
 class GameVC: UIViewController {
 
     @IBOutlet weak var sceneView: SKView!
+    @IBOutlet weak var amountOfPassenger: UILabel!
     
     var scene: RunningScene?
     
+    private var gameVM = GameVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +29,11 @@ class GameVC: UIViewController {
     
     
     @IBAction func startRunning(_ sender: Any) {
-        print("runing!")
+        
+        gameVM.AddOnePassenger()
+        amountOfPassenger.text = " \(String(gameVM.amountOfPassenger)) Passengers"
+        
+        print("runing! \(String(gameVM.amountOfPassenger)) Passengers")
         
         if let scene = self.scene {
             scene.runPig()

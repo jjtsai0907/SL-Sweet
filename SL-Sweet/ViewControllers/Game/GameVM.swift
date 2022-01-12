@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+class GameVM {
+    
+    var amountOfPassenger = 0
+    
+    func AddOnePassenger() {
+        amountOfPassenger += 1
+    }
+    
+    
+}

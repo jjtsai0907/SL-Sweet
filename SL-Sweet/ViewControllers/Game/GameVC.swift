@@ -29,6 +29,7 @@ class GameVC: UIViewController {
     
     
     @IBAction func startRunning(_ sender: Any) {
+        //gameVM.startTimer()
         
         gameVM.AddOnePassenger()
         amountOfPassenger.text = " \(String(gameVM.amountOfPassenger)) Passengers"

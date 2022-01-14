@@ -187,8 +187,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="49" translatesAutoresizingMaskIntoConstraints="NO" id="MwD-DX-Ssm">
                                         <rect key="frame" x="127" y="0.0" width="160" height="89"/>
                                         <subviews>
-                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="h84-5F-yO0">
-                                                <rect key="frame" x="5" y="0.0" width="150" height="4"/>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="h84-5F-yO0">
+                                                <rect key="frame" x="0.0" y="0.0" width="160" height="4"/>
                                                 <color key="progressTintColor" systemColor="systemPinkColor"/>
                                             </progressView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Passenger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8h-nk-3xd">
@@ -198,6 +198,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="h84-5F-yO0" secondAttribute="trailing" id="01p-oN-Ur1"/>
+                                            <constraint firstItem="h84-5F-yO0" firstAttribute="leading" secondItem="MwD-DX-Ssm" secondAttribute="leading" id="f3s-0W-X1R"/>
+                                        </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvT-n0-vvS" customClass="SKView">
                                         <rect key="frame" x="0.0" y="123" width="414" height="488"/>
@@ -230,6 +234,7 @@
                     <tabBarItem key="tabBarItem" title="Game" id="yvh-xC-TiK"/>
                     <connections>
                         <outlet property="amountOfPassenger" destination="k8h-nk-3xd" id="s47-U0-0Vc"/>
+                        <outlet property="progressBar" destination="h84-5F-yO0" id="znx-l0-1nz"/>
                         <outlet property="sceneView" destination="bvT-n0-vvS" id="VmW-hs-FlT"/>
                     </connections>
                 </viewController>

@@ -7,19 +7,22 @@
 
 import UIKit
 import SpriteKit
+import Combine
 
 class GameVC: UIViewController {
 
+    @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var sceneView: SKView!
     @IBOutlet weak var amountOfPassenger: UILabel!
-    
+    private var cancellables: Set<AnyCancellable> = []
     var scene: RunningScene?
     
     private var gameVM = GameVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        bindViewModel()
+        progressBar.setProgress(1.0, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -30,7 +33,7 @@ class GameVC: UIViewController {
     
     @IBAction func startRunning(_ sender: Any) {
         //gameVM.startTimer()
-        
+        //progressBar.progress =
         gameVM.AddOnePassenger()
         amountOfPassenger.text = " \(String(gameVM.amountOfPassenger)) Passengers"
         
@@ -42,4 +45,13 @@ class GameVC: UIViewController {
     }
     
     
+    
+    private func bindViewModel() {
+        
+        gameVM.$remainingTime.sink { [weak self] value in
+            self?.progressBar.setProgress(value, animated: true)
+        }.store(in: &cancellables)
+     
+        
+    }
 }

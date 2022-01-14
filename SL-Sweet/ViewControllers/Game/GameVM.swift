@@ -7,9 +7,9 @@
 
 import Foundation
 
-class GameVM {
+class GameVM: ObservableObject {
     
-    var remainingTime = 10
+    @Published var remainingTime: Float = 1.0
     var timer: Timer!
     
     
@@ -24,13 +24,13 @@ class GameVM {
     }
     
     private func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(step), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(step), userInfo: nil, repeats: true)
     }
     
     
     @objc private func step() {
         if remainingTime > 0 {
-            remainingTime -= 1
+            remainingTime -= 0.1
             print("remaining time = \(remainingTime)")
         } else {
             timer.invalidate()

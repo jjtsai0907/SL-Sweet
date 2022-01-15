@@ -235,6 +235,7 @@
                     <connections>
                         <outlet property="amountOfPassenger" destination="k8h-nk-3xd" id="s47-U0-0Vc"/>
                         <outlet property="progressBar" destination="h84-5F-yO0" id="znx-l0-1nz"/>
+                        <outlet property="runButton" destination="YIA-dv-hhX" id="beQ-nx-ddb"/>
                         <outlet property="sceneView" destination="bvT-n0-vvS" id="VmW-hs-FlT"/>
                     </connections>
                 </viewController>

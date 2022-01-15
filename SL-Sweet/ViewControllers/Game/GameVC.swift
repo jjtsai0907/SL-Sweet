@@ -12,6 +12,7 @@ import Combine
 class GameVC: UIViewController {
 
     @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var runButton: UIButton!
     @IBOutlet weak var sceneView: SKView!
     @IBOutlet weak var amountOfPassenger: UILabel!
     private var cancellables: Set<AnyCancellable> = []
@@ -21,6 +22,7 @@ class GameVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        progressBar.setProgress(1.0, animated: true)
         bindViewModel()
         
     }
@@ -51,6 +53,9 @@ class GameVC: UIViewController {
         gameVM.$remainingTime.sink { [weak self] value in
             DispatchQueue.main.async { [self] in
                 self?.progressBar.setProgress(value / 10.0 , animated: true)
+                if value < 0 {
+                    self?.runButton.isEnabled = false
+                }
             }
             
         }.store(in: &cancellables)

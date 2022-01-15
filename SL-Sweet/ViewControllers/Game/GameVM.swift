@@ -9,7 +9,8 @@ import Foundation
 
 class GameVM: ObservableObject {
     
-    @Published var remainingTime: Float = 1.0
+    @Published var remainingTime: Float = 10.0
+    var totalTime: Float = 10.0
     var timer: Timer!
     
     
@@ -30,7 +31,7 @@ class GameVM: ObservableObject {
     
     @objc private func step() {
         if remainingTime > 0 {
-            remainingTime -= 0.1
+            remainingTime -= 0.01
             print("remaining time = \(remainingTime)")
         } else {
             timer.invalidate()

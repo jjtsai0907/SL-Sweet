@@ -22,7 +22,7 @@ class GameVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
-        progressBar.setProgress(1.0, animated: true)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,7 +33,7 @@ class GameVC: UIViewController {
     
     @IBAction func startRunning(_ sender: Any) {
         //gameVM.startTimer()
-        //progressBar.progress =
+        //progressBar.setProgress(gameVM.remainingTime, animated: true)
         gameVM.AddOnePassenger()
         amountOfPassenger.text = " \(String(gameVM.amountOfPassenger)) Passengers"
         
@@ -49,7 +49,10 @@ class GameVC: UIViewController {
     private func bindViewModel() {
         
         gameVM.$remainingTime.sink { [weak self] value in
-            self?.progressBar.setProgress(value, animated: true)
+            DispatchQueue.main.async { [self] in
+                self?.progressBar.setProgress(value / 10.0 , animated: true)
+            }
+            
         }.store(in: &cancellables)
      
         

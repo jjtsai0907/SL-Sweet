@@ -10,7 +10,6 @@ import Foundation
 class GameVM: ObservableObject {
     
     @Published var remainingTime: Float = 10.0
-    var totalTime: Float = 10.0
     var timer: Timer!
     
     

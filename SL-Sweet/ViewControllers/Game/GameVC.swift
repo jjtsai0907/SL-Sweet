@@ -22,7 +22,9 @@ class GameVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        progressBar.setProgress(1.0, animated: true)
+        
+        progressBar.transform = CGAffineTransform(scaleX: 1, y: 3)
+        
         bindViewModel()
         
     }
@@ -34,12 +36,11 @@ class GameVC: UIViewController {
     
     
     @IBAction func startRunning(_ sender: Any) {
-        //gameVM.startTimer()
-        //progressBar.setProgress(gameVM.remainingTime, animated: true)
+      
         gameVM.AddOnePassenger()
         amountOfPassenger.text = " \(String(gameVM.amountOfPassenger)) Passengers"
         
-        print("runing! \(String(gameVM.amountOfPassenger)) Passengers")
+        print("running! \(String(gameVM.amountOfPassenger)) Passengers")
         
         if let scene = self.scene {
             scene.runPig()

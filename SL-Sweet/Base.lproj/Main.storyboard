@@ -189,7 +189,7 @@
                                         <subviews>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="h84-5F-yO0">
                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="4"/>
-                                                <color key="progressTintColor" systemColor="systemPinkColor"/>
+                                                <color key="progressTintColor" red="1" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </progressView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Passenger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8h-nk-3xd">
                                                 <rect key="frame" x="0.0" y="53" width="160" height="36"/>

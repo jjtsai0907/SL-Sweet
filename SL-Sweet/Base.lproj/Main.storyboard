@@ -180,14 +180,68 @@
                     <view key="view" contentMode="scaleToFill" id="Ehq-sM-zby">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="Qs3-cU-40J">
+                                <rect key="frame" x="0.0" y="71" width="414" height="700"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="49" translatesAutoresizingMaskIntoConstraints="NO" id="MwD-DX-Ssm">
+                                        <rect key="frame" x="127" y="0.0" width="160" height="89"/>
+                                        <subviews>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="h84-5F-yO0">
+                                                <rect key="frame" x="0.0" y="0.0" width="160" height="4"/>
+                                                <color key="progressTintColor" red="1" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </progressView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Passenger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8h-nk-3xd">
+                                                <rect key="frame" x="0.0" y="53" width="160" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="h84-5F-yO0" secondAttribute="trailing" id="01p-oN-Ur1"/>
+                                            <constraint firstItem="h84-5F-yO0" firstAttribute="leading" secondItem="MwD-DX-Ssm" secondAttribute="leading" id="f3s-0W-X1R"/>
+                                        </constraints>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvT-n0-vvS" customClass="SKView">
+                                        <rect key="frame" x="0.0" y="123" width="414" height="488"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIA-dv-hhX">
+                                        <rect key="frame" x="180.5" y="645" width="53" height="55"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <state key="normal" title="RUN!"/>
+                                        <connections>
+                                            <action selector="startRunning:" destination="UBl-Br-kLP" eventType="touchUpInside" id="7Cg-WH-1Jo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bvT-n0-vvS" secondAttribute="trailing" id="cle-ys-wPO"/>
+                                    <constraint firstItem="bvT-n0-vvS" firstAttribute="leading" secondItem="Qs3-cU-40J" secondAttribute="leading" id="xSU-Et-cxO"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="gdj-7a-Ip1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qs3-cU-40J" firstAttribute="top" secondItem="gdj-7a-Ip1" secondAttribute="top" constant="27" id="DRh-3j-t7G"/>
+                            <constraint firstItem="Qs3-cU-40J" firstAttribute="trailing" secondItem="gdj-7a-Ip1" secondAttribute="trailing" id="h1q-C2-IMd"/>
+                            <constraint firstItem="gdj-7a-Ip1" firstAttribute="bottom" secondItem="Qs3-cU-40J" secondAttribute="bottom" constant="42" id="iNW-fc-PGn"/>
+                            <constraint firstItem="Qs3-cU-40J" firstAttribute="leading" secondItem="gdj-7a-Ip1" secondAttribute="leading" id="mU0-sL-s0a"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Game" id="yvh-xC-TiK"/>
+                    <connections>
+                        <outlet property="amountOfPassenger" destination="k8h-nk-3xd" id="s47-U0-0Vc"/>
+                        <outlet property="progressBar" destination="h84-5F-yO0" id="znx-l0-1nz"/>
+                        <outlet property="runButton" destination="YIA-dv-hhX" id="beQ-nx-ddb"/>
+                        <outlet property="sceneView" destination="bvT-n0-vvS" id="VmW-hs-FlT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uPt-es-fSx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2048" y="273"/>
+            <point key="canvasLocation" x="2047.826086956522" y="272.54464285714283"/>
         </scene>
         <!--Realtime ResultVC-->
         <scene sceneID="HBL-YY-elU">
@@ -314,6 +368,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

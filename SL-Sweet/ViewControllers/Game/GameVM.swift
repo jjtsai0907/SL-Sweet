@@ -5,7 +5,7 @@
 //  Created by Jia-Jiuan Tsai on 2022-01-08.
 //
 
-import Foundation
+import UIKit
 
 class GameVM: ObservableObject {
     
@@ -38,5 +38,14 @@ class GameVM: ObservableObject {
         }
         
     }
+    
+    /*
+    func resetGame() {
+        remainingTime = 10
+        amountOfPassenger = 0
+        timer.invalidate()
+    }*/
+    
+    
     
 }

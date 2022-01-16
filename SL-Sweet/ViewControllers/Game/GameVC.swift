@@ -53,9 +53,19 @@ class GameVC: UIViewController {
         
         gameVM.$remainingTime.sink { [weak self] value in
             DispatchQueue.main.async { [self] in
-                self?.progressBar.setProgress(value / 10.0 , animated: true)
+                guard let self = self else { return }
+                
+                self.progressBar.setProgress(value / 10.0 , animated: true)
                 if value < 0 {
-                    self?.runButton.isEnabled = false
+                    //self?.runButton.isEnabled = false
+                    
+                    let alert = UIAlertController(title: "Great Job!", message: "Because of your hard work, \(self.gameVM.amountOfPassenger) lazy pigs can finally make it to work just on time", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                        //self.gameVM.resetGame()
+                        //self.progressBar.setProgress(1.0, animated: true)
+                        print("okay")
+                    }))
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
             
@@ -63,4 +73,6 @@ class GameVC: UIViewController {
      
         
     }
+    
+    
 }

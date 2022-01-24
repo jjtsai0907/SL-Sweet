@@ -9,8 +9,8 @@ import UIKit
 
 class GameVM: ObservableObject {
     
-    @Published var remainingTime: Float = 10.0
-    var timer: Timer!
+    @Published var remainingTime: Float = 3.0
+    var timer: Timer?
     
     
     var amountOfPassenger = 0
@@ -18,7 +18,7 @@ class GameVM: ObservableObject {
     func AddOnePassenger() {
         amountOfPassenger += 1
         
-        if remainingTime > 0 {
+        if remainingTime > 0 && timer == nil {
             startTimer()
         }
     }
@@ -33,18 +33,18 @@ class GameVM: ObservableObject {
             remainingTime -= 0.01
             print("remaining time = \(remainingTime)")
         } else {
-            timer.invalidate()
+            timer?.invalidate()
             
         }
         
     }
     
-    /*
+    
     func resetGame() {
-        remainingTime = 10
+        remainingTime = 3
         amountOfPassenger = 0
-        timer.invalidate()
-    }*/
+        timer = nil
+    }
     
     
     

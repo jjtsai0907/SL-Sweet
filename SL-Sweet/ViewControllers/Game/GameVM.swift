@@ -34,7 +34,6 @@ class GameVM: ObservableObject {
             print("remaining time = \(remainingTime)")
         } else {
             timer?.invalidate()
-            
         }
         
     }

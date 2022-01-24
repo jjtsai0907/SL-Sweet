@@ -185,22 +185,22 @@
                                 <rect key="frame" x="0.0" y="71" width="414" height="700"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="49" translatesAutoresizingMaskIntoConstraints="NO" id="MwD-DX-Ssm">
-                                        <rect key="frame" x="127" y="0.0" width="160" height="89"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
                                         <subviews>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="h84-5F-yO0">
-                                                <rect key="frame" x="0.0" y="0.0" width="160" height="4"/>
+                                                <rect key="frame" x="10" y="0.0" width="394" height="4"/>
                                                 <color key="progressTintColor" red="1" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </progressView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Passenger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8h-nk-3xd">
-                                                <rect key="frame" x="0.0" y="53" width="160" height="36"/>
+                                                <rect key="frame" x="127" y="53" width="160" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="h84-5F-yO0" secondAttribute="trailing" id="01p-oN-Ur1"/>
-                                            <constraint firstItem="h84-5F-yO0" firstAttribute="leading" secondItem="MwD-DX-Ssm" secondAttribute="leading" id="f3s-0W-X1R"/>
+                                            <constraint firstItem="h84-5F-yO0" firstAttribute="leading" secondItem="MwD-DX-Ssm" secondAttribute="leading" constant="10" id="R7O-qa-ob1"/>
+                                            <constraint firstAttribute="trailing" secondItem="h84-5F-yO0" secondAttribute="trailing" constant="10" id="XDy-uq-plK"/>
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvT-n0-vvS" customClass="SKView">
@@ -217,7 +217,9 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="MwD-DX-Ssm" firstAttribute="leading" secondItem="Qs3-cU-40J" secondAttribute="leading" id="CKj-5H-SGw"/>
                                     <constraint firstAttribute="trailing" secondItem="bvT-n0-vvS" secondAttribute="trailing" id="cle-ys-wPO"/>
+                                    <constraint firstAttribute="trailing" secondItem="MwD-DX-Ssm" secondAttribute="trailing" id="lM8-mq-r5Q"/>
                                     <constraint firstItem="bvT-n0-vvS" firstAttribute="leading" secondItem="Qs3-cU-40J" secondAttribute="leading" id="xSU-Et-cxO"/>
                                 </constraints>
                             </stackView>

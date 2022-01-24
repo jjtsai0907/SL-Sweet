@@ -19,6 +19,13 @@
 		B97F93B3276A284E00487203 /* TrafficCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F93B2276A284E00487203 /* TrafficCell.swift */; };
 		B97F93B5276A49CB00487203 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F93B4276A49CB00487203 /* SectionHeader.swift */; };
 		B97F93B7276A4A4100487203 /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B97F93B6276A4A4100487203 /* SectionHeader.xib */; };
+		B9A28A5F279EA8D400EABB2B /* trafficStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = B9A28A5E279EA8D400EABB2B /* trafficStatus.png */; };
+		B9A28A64279EA8DE00EABB2B /* textRecHome.png in Resources */ = {isa = PBXBuildFile; fileRef = B9A28A60279EA8DE00EABB2B /* textRecHome.png */; };
+		B9A28A65279EA8DE00EABB2B /* realtime.png in Resources */ = {isa = PBXBuildFile; fileRef = B9A28A61279EA8DE00EABB2B /* realtime.png */; };
+		B9A28A66279EA8DE00EABB2B /* imagePicker.png in Resources */ = {isa = PBXBuildFile; fileRef = B9A28A62279EA8DE00EABB2B /* imagePicker.png */; };
+		B9A28A67279EA8DE00EABB2B /* textRec&Speech.png in Resources */ = {isa = PBXBuildFile; fileRef = B9A28A63279EA8DE00EABB2B /* textRec&Speech.png */; };
+		B9A28A6A279EA8E600EABB2B /* gameFinish.png in Resources */ = {isa = PBXBuildFile; fileRef = B9A28A68279EA8E600EABB2B /* gameFinish.png */; };
+		B9A28A6B279EA8E600EABB2B /* game.png in Resources */ = {isa = PBXBuildFile; fileRef = B9A28A69279EA8E600EABB2B /* game.png */; };
 		B9A4E46A275EA60900F0BB49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A4E469275EA60900F0BB49 /* AppDelegate.swift */; };
 		B9A4E46C275EA60900F0BB49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A4E46B275EA60900F0BB49 /* SceneDelegate.swift */; };
 		B9A4E46E275EA60900F0BB49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A4E46D275EA60900F0BB49 /* ViewController.swift */; };
@@ -52,6 +59,13 @@
 		B97F93B2276A284E00487203 /* TrafficCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficCell.swift; sourceTree = "<group>"; };
 		B97F93B4276A49CB00487203 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		B97F93B6276A4A4100487203 /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
+		B9A28A5E279EA8D400EABB2B /* trafficStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = trafficStatus.png; path = "../../../SL-Sweet Screen Shots/trafficStatus.png"; sourceTree = "<group>"; };
+		B9A28A60279EA8DE00EABB2B /* textRecHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = textRecHome.png; path = "../../../SL-Sweet Screen Shots/textRecHome.png"; sourceTree = "<group>"; };
+		B9A28A61279EA8DE00EABB2B /* realtime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = realtime.png; path = "../../../SL-Sweet Screen Shots/realtime.png"; sourceTree = "<group>"; };
+		B9A28A62279EA8DE00EABB2B /* imagePicker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = imagePicker.png; path = "../../../SL-Sweet Screen Shots/imagePicker.png"; sourceTree = "<group>"; };
+		B9A28A63279EA8DE00EABB2B /* textRec&Speech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "textRec&Speech.png"; path = "../../../SL-Sweet Screen Shots/textRec&Speech.png"; sourceTree = "<group>"; };
+		B9A28A68279EA8E600EABB2B /* gameFinish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gameFinish.png; path = "../../../SL-Sweet Screen Shots/gameFinish.png"; sourceTree = "<group>"; };
+		B9A28A69279EA8E600EABB2B /* game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = game.png; path = "../../../SL-Sweet Screen Shots/game.png"; sourceTree = "<group>"; };
 		B9A4E466275EA60900F0BB49 /* SL-Sweet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SL-Sweet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A4E469275EA60900F0BB49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9A4E46B275EA60900F0BB49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +149,20 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B9A28A5D279EA7F400EABB2B /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				B9A28A5E279EA8D400EABB2B /* trafficStatus.png */,
+				B9A28A62279EA8DE00EABB2B /* imagePicker.png */,
+				B9A28A61279EA8DE00EABB2B /* realtime.png */,
+				B9A28A63279EA8DE00EABB2B /* textRec&Speech.png */,
+				B9A28A60279EA8DE00EABB2B /* textRecHome.png */,
+				B9A28A69279EA8E600EABB2B /* game.png */,
+				B9A28A68279EA8E600EABB2B /* gameFinish.png */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 		B9A4E45D275EA60900F0BB49 = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +183,7 @@
 		B9A4E468275EA60900F0BB49 /* SL-Sweet */ = {
 			isa = PBXGroup;
 			children = (
+				B9A28A5D279EA7F400EABB2B /* Screenshots */,
 				B928FF8C278B47FB0086AB24 /* pig.atlas */,
 				B9FAD7352770A742007A9B98 /* ViewControllers */,
 				B97F93B1276A27F300487203 /* Views */,
@@ -287,10 +316,17 @@
 			files = (
 				B97F93B7276A4A4100487203 /* SectionHeader.xib in Resources */,
 				B9A4E476275EA60B00F0BB49 /* LaunchScreen.storyboard in Resources */,
+				B9A28A64279EA8DE00EABB2B /* textRecHome.png in Resources */,
+				B9A28A67279EA8DE00EABB2B /* textRec&Speech.png in Resources */,
+				B9A28A6A279EA8E600EABB2B /* gameFinish.png in Resources */,
 				B928FF8D278B47FB0086AB24 /* pig.atlas in Resources */,
 				B9FF591D277483CB00012860 /* RealtimeTableCell.xib in Resources */,
 				B9A4E473275EA60B00F0BB49 /* Assets.xcassets in Resources */,
 				B9A4E471275EA60900F0BB49 /* Main.storyboard in Resources */,
+				B9A28A6B279EA8E600EABB2B /* game.png in Resources */,
+				B9A28A65279EA8DE00EABB2B /* realtime.png in Resources */,
+				B9A28A5F279EA8D400EABB2B /* trafficStatus.png in Resources */,
+				B9A28A66279EA8DE00EABB2B /* imagePicker.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
